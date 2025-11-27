@@ -27,7 +27,7 @@ const BrochurePage = () => {
       </h1>
       
       <div style={{
-        background: 'linear-gradient(to right, #3b82f6, #1d4ed8)',
+        background: 'linear-gradient(to right, #ef4444, #b91c1c)',  // 🔥 Red Gradient
         color: 'white',
         borderRadius: '0.5rem',
         padding: '3rem',
@@ -54,7 +54,7 @@ const BrochurePage = () => {
           onClick={handleDownload}
           style={{
             backgroundColor: 'white',
-            color: '#1d4ed8',
+            color: '#b91c1c',                         // 🔥 Red Text
             padding: '0.75rem 2rem',
             borderRadius: '0.5rem',
             fontWeight: '600',
@@ -65,7 +65,7 @@ const BrochurePage = () => {
             alignItems: 'center',
             gap: '0.5rem'
           }}
-          onMouseEnter={(e) => e.target.style.backgroundColor = '#f3f4f6'}
+          onMouseEnter={(e) => e.target.style.backgroundColor = '#fee2e2'} // 🔥 Light Red Hover
           onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
         >
           <Download size={20} />
@@ -100,55 +100,59 @@ const BrochurePage = () => {
               alignItems: 'flex-start',
               marginBottom: '0.75rem'
             }}>
-              <ChevronRight color="#3b82f6" style={{ 
+              <ChevronRight color="#ef4444" style={{  // 🔥 Red Icons
                 marginTop: '0.25rem', 
                 marginRight: '0.5rem',
                 flexShrink: 0 
               }} />
               <span>Complete service catalog with technical specifications</span>
             </li>
+
             <li style={{
               display: 'flex',
               alignItems: 'flex-start',
               marginBottom: '0.75rem'
             }}>
-              <ChevronRight color="#3b82f6" style={{ 
+              <ChevronRight color="#ef4444" style={{
                 marginTop: '0.25rem', 
                 marginRight: '0.5rem',
                 flexShrink: 0 
               }} />
               <span>Detailed machine capabilities and tolerances</span>
             </li>
+
             <li style={{
               display: 'flex',
               alignItems: 'flex-start',
               marginBottom: '0.75rem'
             }}>
-              <ChevronRight color="#3b82f6" style={{ 
+              <ChevronRight color="#ef4444" style={{
                 marginTop: '0.25rem', 
                 marginRight: '0.5rem',
                 flexShrink: 0 
               }} />
               <span>Case studies and success stories</span>
             </li>
+
             <li style={{
               display: 'flex',
               alignItems: 'flex-start',
               marginBottom: '0.75rem'
             }}>
-              <ChevronRight color="#3b82f6" style={{ 
+              <ChevronRight color="#ef4444" style={{
                 marginTop: '0.25rem', 
                 marginRight: '0.5rem',
                 flexShrink: 0 
               }} />
               <span>Quality certifications and standards</span>
             </li>
+
             <li style={{
               display: 'flex',
               alignItems: 'flex-start',
               marginBottom: '0.75rem'
             }}>
-              <ChevronRight color="#3b82f6" style={{ 
+              <ChevronRight color="#ef4444" style={{
                 marginTop: '0.25rem', 
                 marginRight: '0.5rem',
                 flexShrink: 0 
@@ -171,6 +175,7 @@ const BrochurePage = () => {
           }}>
             Technical Specifications
           </h3>
+
           <div style={{ marginBottom: '1rem' }}>
             <h4 style={{
               fontWeight: '600',
@@ -183,6 +188,7 @@ const BrochurePage = () => {
               Up to 2000mm x 1000mm x 800mm
             </p>
           </div>
+
           <div style={{ marginBottom: '1rem' }}>
             <h4 style={{
               fontWeight: '600',
@@ -195,6 +201,7 @@ const BrochurePage = () => {
               Standard: ±0.01mm, Precision: ±0.001mm
             </p>
           </div>
+
           <div style={{ marginBottom: '1rem' }}>
             <h4 style={{
               fontWeight: '600',
@@ -207,6 +214,7 @@ const BrochurePage = () => {
               Aluminum, Steel, Stainless Steel, Titanium, Brass, Plastics
             </p>
           </div>
+
           <div>
             <h4 style={{
               fontWeight: '600',
@@ -219,6 +227,7 @@ const BrochurePage = () => {
               Ra 0.4μm to 3.2μm
             </p>
           </div>
+
         </div>
       </div>
     </div>

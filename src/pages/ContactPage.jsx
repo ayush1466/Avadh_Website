@@ -3,9 +3,8 @@ import { MapPin, Phone, Mail, Send } from 'lucide-react';
 
 const ContactPage = () => {
   const handleWhatsAppClick = () => {
-    // Replace with your actual WhatsApp number (with country code, no + or spaces)
     const phoneNumber = "919876543210";
-    const message = "Hello, I would like to inquire about your CNC machining services. Please provide me with more information regarding pricing, lead times, and capabilities.";
+    const message = "Hello, I would like to inquire about your CNC machining services. Please provide more information regarding pricing, lead times, and capabilities.";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -19,7 +18,8 @@ const ContactPage = () => {
       <h1 style={{
         fontSize: '2.25rem',
         fontWeight: 'bold',
-        marginBottom: '2rem'
+        marginBottom: '2rem',
+        color: '#1e3a8a'
       }}>
         Contact Us
       </h1>
@@ -39,7 +39,8 @@ const ContactPage = () => {
           <h2 style={{
             fontSize: '1.5rem',
             fontWeight: 'bold',
-            marginBottom: '1.5rem'
+            marginBottom: '1.5rem',
+            color: '#dc2626'
           }}>
             Get In Touch
           </h2>
@@ -50,11 +51,7 @@ const ContactPage = () => {
               alignItems: 'flex-start',
               marginBottom: '1rem'
             }}>
-              <MapPin color="#3b82f6" style={{ 
-                marginTop: '0.25rem',
-                marginRight: '0.75rem',
-                flexShrink: 0 
-              }} />
+              <MapPin color="#1e3a8a" style={{ marginTop: '0.25rem', marginRight: '0.75rem' }} />
               <div>
                 <h3 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Address</h3>
                 <p style={{ color: '#4b5563' }}>
@@ -69,26 +66,15 @@ const ContactPage = () => {
               alignItems: 'flex-start',
               marginBottom: '1rem'
             }}>
-              <Phone color="#3b82f6" style={{ 
-                marginTop: '0.25rem',
-                marginRight: '0.75rem',
-                flexShrink: 0 
-              }} />
+              <Phone color="#1e3a8a" style={{ marginTop: '0.25rem', marginRight: '0.75rem' }} />
               <div>
                 <h3 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Phone</h3>
                 <p style={{ color: '#4b5563' }}>+91 98765 43210</p>
               </div>
             </div>
             
-            <div style={{
-              display: 'flex',
-              alignItems: 'flex-start'
-            }}>
-              <Mail color="#3b82f6" style={{ 
-                marginTop: '0.25rem',
-                marginRight: '0.75rem',
-                flexShrink: 0 
-              }} />
+            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+              <Mail color="#1e3a8a" style={{ marginTop: '0.25rem', marginRight: '0.75rem' }} />
               <div>
                 <h3 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Email</h3>
                 <p style={{ color: '#4b5563' }}>info@precisioncncworks.com</p>
@@ -100,7 +86,7 @@ const ContactPage = () => {
             onClick={handleWhatsAppClick}
             style={{
               width: '100%',
-              backgroundColor: '#22c55e',
+              backgroundColor: '#dc2626',
               color: 'white',
               padding: '0.75rem 1.5rem',
               borderRadius: '0.5rem',
@@ -112,8 +98,8 @@ const ContactPage = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#16a34a'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#22c55e'}
+            onMouseEnter={(e) => e.target.style.backgroundColor = '#b91c1c'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = '#dc2626'}
           >
             <Send size={20} style={{ marginRight: '0.5rem' }} />
             Send WhatsApp Inquiry
@@ -129,10 +115,12 @@ const ContactPage = () => {
           <h2 style={{
             fontSize: '1.5rem',
             fontWeight: 'bold',
-            marginBottom: '1.5rem'
+            marginBottom: '1.5rem',
+            color: '#dc2626'
           }}>
             Business Hours
           </h2>
+
           <div>
             <div style={{
               display: 'flex',
@@ -144,6 +132,7 @@ const ContactPage = () => {
               <span style={{ fontWeight: '600' }}>Monday - Friday</span>
               <span style={{ color: '#4b5563' }}>9:00 AM - 6:00 PM</span>
             </div>
+
             <div style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -154,6 +143,7 @@ const ContactPage = () => {
               <span style={{ fontWeight: '600' }}>Saturday</span>
               <span style={{ color: '#4b5563' }}>9:00 AM - 2:00 PM</span>
             </div>
+
             <div style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -182,7 +172,7 @@ const ContactPage = () => {
               fontSize: '0.875rem',
               color: '#374151'
             }}>
-              We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.
+              We typically respond within 24 hours during business days. For urgent matters, please call us directly.
             </p>
           </div>
         </div>
@@ -197,10 +187,12 @@ const ContactPage = () => {
         <h2 style={{
           fontSize: '1.5rem',
           fontWeight: 'bold',
-          marginBottom: '1rem'
+          marginBottom: '1rem',
+          color: '#dc2626'
         }}>
           Our Location
         </h2>
+
         <div style={{
           width: '100%',
           height: '400px',
@@ -213,7 +205,6 @@ const ContactPage = () => {
             width="100%"
             height="100%"
             style={{ border: 0 }}
-            allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Factory Location"

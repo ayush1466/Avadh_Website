@@ -1,208 +1,485 @@
-import React from 'react';
-import { Wrench, Cog, Box, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Wrench, Cog, Box, ChevronRight } from "lucide-react";
 
 const HomePage = ({ setCurrentPage }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Sectors data with images
+  const sectors = [
+    {
+      name: "POWER PLANT",
+      image: "public/assests/powerplant.jpg",
+      description: "Precision components for power generation"
+    },
+    {
+      name: "SUGAR MILL",
+      image: "public/assests/sugarmill.jpg",
+      description: "Specialized parts for sugar processing"
+    },
+    {
+      name: "RUBBER",
+      image: "public/assests/rubber.jpg",
+      description: "Quality components for rubber industry"
+    },
+    {
+      name: "DEFENSE",
+      image: "public/assests/defense.jpg",
+      description: "Critical parts for defense applications"
+    },
+    {
+      name: "AEROSPACE",
+      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800",
+      description: "High-precision aerospace components"
+    },
+    {
+      name: "CHEMICAL",
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800",
+      description: "Corrosion-resistant components"
+    },
+    {
+      name: "AUTOMOTIVE",
+      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800",
+      description: "Precision parts for automotive industry"
+    },
+    {
+      name: "OIL & GAS",
+      image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800",
+      description: "Heavy-duty components for oil & gas"
+    },
+    {
+      name: "PLASTIC MACHINERY",
+      image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?w=800",
+      description: "Machined parts for plastic processing"
+    },
+    {
+      name: "BLOCK MAKING MACHINERY",
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800",
+      description: "Durable parts for block making equipment"
+    },
+    {
+      name: "STEEL",
+      image: "https://images.unsplash.com/photo-1565264555692-41bc88e07aab?w=800",
+      description: "High-strength components for steel industry"
+    },
+    {
+      name: "SPACE",
+      image: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800",
+      description: "Specialized parts for space missions"
+    },
+    {
+      name: "PACKAGING MACHINERY",
+      image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800",
+      description: "Precision components for packaging systems"
+    }
+  ];
+
+
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sectors.length);
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [sectors.length]);
+
   return (
-    <div style={{ minHeight: '100vh' }}>
-      <div style={{
-        background: 'linear-gradient(to right, #1e3a8a, #111827)',
-        color: 'white',
-        padding: '8rem 2rem',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <h1 style={{
-            fontSize: '3rem',
-            fontWeight: 'bold',
-            marginBottom: '1.5rem'
-          }}>
-            Avadh Engineering
-          </h1>
-          <p style={{
-            fontSize: '1.25rem',
-            marginBottom: '2rem',
-            maxWidth: '42rem',
-            margin: '0 auto 2rem'
-          }}>
-            Leading provider of high-quality CNC machining services with state-of-the-art equipment and expert craftsmanship
-          </p>
-          <button 
-            onClick={() => setCurrentPage('contact')}
+    <div style={{ 
+      minHeight: "100vh",
+      backgroundImage: "url('public/assests/factory.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
+      backgroundRepeat: "no-repeat"
+    }}>
+      {/* HERO SECTION */}
+      <div
+        style={{
+          color: "white",
+          padding: "8rem 2rem",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <h1
             style={{
-              backgroundColor: '#3b82f6',
-              color: 'white',
-              padding: '0.75rem 2rem',
-              borderRadius: '0.5rem',
-              fontWeight: '600',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '1rem'
+              fontSize: "3rem",
+              fontWeight: "bold",
+              marginBottom: "1.5rem",
+              color: "#FFFFFF",
+              textShadow: "3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 0, 0, 0.5)",
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#2563eb'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#3b82f6'}
+          >
+            AVADH ENTERPRISE
+          </h1>
+          <p
+            style={{
+              fontSize: "1.25rem",
+              marginBottom: "2rem",
+              maxWidth: "42rem",
+              margin: "0 auto 2rem",
+              color: "#FFFFFF",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+              fontWeight: "500",
+            }}
+          >
+            ALL MACHINING SOLUTIONS UNDER ONE ROOF
+          </p>
+
+          {/* BUTTON */}
+          <button
+            onClick={() => setCurrentPage("contact")}
+            style={{
+              backgroundColor: "#FF2D2D",
+              color: "white",
+              padding: "0.75rem 2rem",
+              borderRadius: "0.5rem",
+              fontWeight: "600",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "1rem",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "#D51F1F";
+              e.target.style.transform = "scale(1.05)";
+              e.target.style.transition = "all 0.3s";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "#FF2D2D";
+              e.target.style.transform = "scale(1)";
+            }}
           >
             Contact Us
           </button>
         </div>
       </div>
 
-      <div style={{
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: '4rem 1rem'
-      }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          marginBottom: '4rem'
-        }}>
-          <div style={{
-            textAlign: 'center',
-            padding: '1.5rem',
-            backgroundColor: 'white',
-            borderRadius: '0.5rem',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <Wrench size={48} color="#3b82f6" style={{ margin: '0 auto 1rem' }} />
-            <h3 style={{
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-              marginBottom: '0.5rem'
-            }}>
-              Advanced Technology
-            </h3>
-            <p style={{ color: '#4b5563' }}>
-              Latest CNC machines for precision manufacturing
-            </p>
-          </div>
-
-          <div style={{
-            textAlign: 'center',
-            padding: '1.5rem',
-            backgroundColor: 'white',
-            borderRadius: '0.5rem',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <Cog size={48} color="#3b82f6" style={{ margin: '0 auto 1rem' }} />
-            <h3 style={{
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-              marginBottom: '0.5rem'
-            }}>
-              Expert Team
-            </h3>
-            <p style={{ color: '#4b5563' }}>
-              Skilled professionals with years of experience
-            </p>
-          </div>
-
-          <div style={{
-            textAlign: 'center',
-            padding: '1.5rem',
-            backgroundColor: 'white',
-            borderRadius: '0.5rem',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <Box size={48} color="#3b82f6" style={{ margin: '0 auto 1rem' }} />
-            <h3 style={{
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-              marginBottom: '0.5rem'
-            }}>
-              Quality Assurance
-            </h3>
-            <p style={{ color: '#4b5563' }}>
-              ISO certified processes and quality control
-            </p>
-          </div>
-        </div>
-
-        <div style={{
-          backgroundColor: '#f9fafb',
-          borderRadius: '0.5rem',
-          padding: '2rem'
-        }}>
-          <h2 style={{
-            fontSize: '1.875rem',
-            fontWeight: 'bold',
-            marginBottom: '1.5rem',
-            textAlign: 'center'
-          }}>
-            Why Choose Us?
-          </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-              <ChevronRight color="#3b82f6" style={{ 
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <div>
-                <h4 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
-                  High Precision
-                </h4>
-                <p style={{ color: '#4b5563' }}>
-                  Tolerance up to ±0.001mm for critical components
-                </p>
-              </div>
+      {/* FEATURES SECTION */}
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "4rem 1rem",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "2rem",
+              marginBottom: "4rem",
+            }}
+          >
+            {/* Card 1 */}
+            <div
+              style={{
+                textAlign: "center",
+                padding: "1.5rem",
+                backgroundColor: "white",
+                borderRadius: "0.5rem",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <Wrench
+                size={48}
+                color="#4DB8FF"
+                style={{ margin: "0 auto 1rem" }}
+              />
+              <h3
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                MACHINING
+              </h3>
+              <p style={{ color: "#4b5563" }}>
+                our state-of-the-art facility is fully developed with high-tech &
+                up to date technological 3-4-5 axis CNC and inspection machines.
+              </p>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-              <ChevronRight color="#3b82f6" style={{ 
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <div>
-                <h4 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
-                  Fast Turnaround
-                </h4>
-                <p style={{ color: '#4b5563' }}>
-                  Quick delivery without compromising quality
-                </p>
-              </div>
+            {/* Card 2 */}
+            <div
+              style={{
+                textAlign: "center",
+                padding: "1.5rem",
+                backgroundColor: "white",
+                borderRadius: "0.5rem",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <Cog size={48} color="#FF2D2D" style={{ margin: "0 auto 1rem" }} />
+              <h3
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                QUALITY
+              </h3>
+              <p style={{ color: "#4b5563" }}>
+                We serve quality product to customers since 2006. We have always
+                believed in fulfilling customers need.
+              </p>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-              <ChevronRight color="#3b82f6" style={{ 
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <div>
-                <h4 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
-                  Competitive Pricing
-                </h4>
-                <p style={{ color: '#4b5563' }}>
-                  Best rates in the industry
-                </p>
-              </div>
+            {/* Card 3 */}
+            <div
+              style={{
+                textAlign: "center",
+                padding: "1.5rem",
+                backgroundColor: "white",
+                borderRadius: "0.5rem",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <Box size={48} color="#4DB8FF" style={{ margin: "0 auto 1rem" }} />
+              <h3
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                INSPECTION
+              </h3>
+              <p style={{ color: "#4b5563" }}>
+                Every machined workpiece undergoes geometric tolerances check to make it precise with customers enquiry. 
+              </p>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-              <ChevronRight color="#3b82f6" style={{ 
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <div>
-                <h4 style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
-                  Custom Solutions
-                </h4>
-                <p style={{ color: '#4b5563' }}>
-                  Tailored manufacturing for your specific needs
-                </p>
-              </div>
+            {/* card 4 */}
+            <div
+              style={{
+                textAlign: "center",
+                padding: "1.5rem",
+                backgroundColor: "white",
+                borderRadius: "0.5rem",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#4DB8FF"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ margin: "0 auto 1rem", display: "block" }}
+              >
+                <path d="M18 21a8 8 0 0 0-16 0" />
+                <circle cx="10" cy="8" r="5" />
+                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+              </svg>
+
+              <h3
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                EXPERT TEAM
+              </h3>
+              <p style={{ color: "#4b5563" }}>
+                our skilled and work-enthusiast team of engineers help to
+                understand customers need and design.
+              </p>
             </div>
           </div>
+
+          {/* SECTORS WE SERVE - SLIDER SECTION */}
+          <div style={{ marginTop: "4rem" }}>
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "bold",
+                textAlign: "center",
+                marginBottom: "3rem",
+                color: "#1f2937",
+                textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)",
+              }}
+            >
+              Sectors We Serve
+            </h2>
+
+            {/* Slider Container */}
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "500px",
+                overflow: "hidden",
+                borderRadius: "1rem",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+              }}
+            >
+              {/* Slides */}
+              {sectors.map((sector, index) => (
+                <div
+                  key={index}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    opacity: currentSlide === index ? 1 : 0,
+                    transition: "opacity 1s ease-in-out",
+                    backgroundImage: `url(${sector.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {/* Dark Overlay */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "rgba(0, 0, 0, 0.5)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "white",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontSize: "3rem",
+                        fontWeight: "bold",
+                        marginBottom: "1rem",
+                        textShadow: "3px 3px 6px rgba(0, 0, 0, 0.8)",
+                      }}
+                    >
+                      {sector.name}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: "1.25rem",
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+                      }}
+                    >
+                      {sector.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+
+              {/* Navigation Dots */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "2rem",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  display: "flex",
+                  gap: "0.75rem",
+                  zIndex: 10,
+                }}
+              >
+                {sectors.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    style={{
+                      width: "12px",
+                      height: "12px",
+                      borderRadius: "50%",
+                      border: "2px solid white",
+                      backgroundColor:
+                        currentSlide === index ? "white" : "transparent",
+                      cursor: "pointer",
+                      transition: "all 0.3s",
+                    }}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Previous Button */}
+              <button
+                onClick={() =>
+                  setCurrentSlide(
+                    (prev) => (prev - 1 + sectors.length) % sectors.length
+                  )
+                }
+                style={{
+                  position: "absolute",
+                  left: "1rem",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  backgroundColor: "rgba(255, 255, 255, 0.3)",
+                  border: "2px solid white",
+                  color: "white",
+                  fontSize: "1.5rem",
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: 10,
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                }}
+              >
+                ‹
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % sectors.length)}
+                style={{
+                  position: "absolute",
+                  right: "1rem",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  backgroundColor: "rgba(255, 255, 255, 0.3)",
+                  border: "2px solid white",
+                  color: "white",
+                  fontSize: "1.5rem",
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: 10,
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                }}
+              >
+                ›
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
+  
   );
 };
 

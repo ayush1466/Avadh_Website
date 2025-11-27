@@ -1,7 +1,13 @@
+// ============================================
+// FILE: src/App.jsx
+// Updated with Floating WhatsApp Button
+// ============================================
+
 import React, { useState } from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';  // ← ADD THIS
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
@@ -35,7 +41,8 @@ function App() {
     <div className="App">
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {renderPage()}
-      <Footer />
+      <Footer setCurrentPage={setCurrentPage} />
+      <WhatsAppFloat />  {/* ← ADD THIS */}
     </div>
   );
 }
