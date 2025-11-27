@@ -1,8 +1,3 @@
-// ============================================
-// FILE: src/pages/BrochurePage.jsx
-// Complete code with PDF download functionality
-// ============================================
-
 import React from 'react';
 import { FileText, ChevronRight, Download } from 'lucide-react';
 
