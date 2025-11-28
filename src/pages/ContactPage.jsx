@@ -60,7 +60,6 @@ const ContactPage = () => {
                 </p>
               </div>
             </div>
-            
             <div style={{
               display: 'flex',
               alignItems: 'flex-start',
