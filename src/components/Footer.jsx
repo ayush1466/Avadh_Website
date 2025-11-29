@@ -124,8 +124,8 @@ const Footer = ({ setCurrentPage }) => {
                   <button
                     onClick={() => handleLinkClick(link.id)}
                     style={linkStyle}
-                    onMouseEnter={(e) => e.target.style.color = '#0F172A'}
-                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}
+                    onMouseEnter={(e) => e.target.style.color = '#60a5fa'}
+                    onMouseLeave={(e) => e.target.style.color = '#0F172A'}
                   >
                     → {link.label}
                   </button>
@@ -137,8 +137,8 @@ const Footer = ({ setCurrentPage }) => {
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                  onMouseEnter={(e) => e.target.style.color = '#0F172A'}
-                  onMouseLeave={(e) => e.target.style.color = '#d1d5db'}
+                  onMouseEnter={(e) => e.target.style.color = '#60a5fa'}
+                  onMouseLeave={(e) => e.target.style.color = '#0F172A'}
                 >
                   → Services
                   <ChevronDown 
@@ -158,7 +158,7 @@ const Footer = ({ setCurrentPage }) => {
                           onClick={() => handleLinkClick(service.id)}
                           style={{ ...linkStyle, color: '#0F172A', fontSize: '0.813rem' }}
                           onMouseEnter={(e) => e.target.style.color = '#60a5fa'}
-                          onMouseLeave={(e) => e.target.style.color = '#9ca3af'}
+                          onMouseLeave={(e) => e.target.style.color = '#0F172A'}
                         >
                           • {service.label}
                         </button>

@@ -7,7 +7,7 @@ import React from 'react';
 
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "919876543210"; // Change to your WhatsApp number
+    const phoneNumber = "+919825995010"; // Change to your WhatsApp number
     const message = "Hello, I would like to inquire about your CNC machining services.";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
