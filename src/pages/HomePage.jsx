@@ -89,7 +89,6 @@ const HomePage = ({ setCurrentPage }) => {
         backgroundImage: "url('/assets/fac2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
       }}
     >
