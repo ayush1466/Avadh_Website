@@ -83,17 +83,15 @@ const HomePage = ({ setCurrentPage }) => {
   }, [sectors.length]);
 
   return (
- <div
-      style={
-        {
-          minHeight: "100vh",
-          backgroundImage: "url('public/assets/fac2.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          backgroundRepeat: "no-repeat"
-        }
-      }
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundImage: "url('public/assets/fac2.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       {/* HERO SECTION */}
       <div
@@ -103,7 +101,6 @@ const HomePage = ({ setCurrentPage }) => {
           textAlign: "center",
         }}
       >
-      
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center" }}>
             <img
@@ -167,10 +164,9 @@ const HomePage = ({ setCurrentPage }) => {
           padding: "2rem",
           lineHeight: "1.8",
           fontFamily: "'Georgia', serif",
-          color: "white",
-          // backdropFilter: "blur(4px)", // blur background
-          backgroundColor: "rgba(0,0,0,0.3)", // soft dark tint
+          backgroundColor: "#ffffff",
           borderRadius: "10px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         }}
       >
         {/* Heading */}
@@ -178,7 +174,7 @@ const HomePage = ({ setCurrentPage }) => {
           style={{
             fontSize: "3rem",
             fontWeight: "bold",
-            color: "#0539e3ff", // red heading stays same
+            color: "#0539e3ff",
             marginBottom: "1.5rem",
             textAlign: "center",
           }}
@@ -192,6 +188,7 @@ const HomePage = ({ setCurrentPage }) => {
             fontSize: "1.1rem",
             marginBottom: "1.5rem",
             fontWeight: "bold",
+            color: "#000000",
           }}
         >
           We established as a part of manufacturing and machining service
@@ -203,6 +200,7 @@ const HomePage = ({ setCurrentPage }) => {
             fontSize: "1.1rem",
             marginBottom: "1.5rem",
             fontWeight: "bold",
+            color: "#000000",
           }}
         >
           As the nation grew, our establishments along with our facilities,
@@ -218,6 +216,7 @@ const HomePage = ({ setCurrentPage }) => {
             fontSize: "1.1rem",
             marginBottom: "1.5rem",
             fontWeight: "bold",
+            color: "#000000",
           }}
         >
           We are an ISO 9001:2015 certified company, aiming for better machining
@@ -231,11 +230,12 @@ const HomePage = ({ setCurrentPage }) => {
             fontSize: "1.1rem",
             marginBottom: "2rem",
             fontWeight: "bold",
+            color: "#000000",
           }}
         >
           Our high-end facility is well equipped with systems for machining like
           Advanced CNCs: VMC, HMC, Turning Centre and H-Boring. We ensure our
-          clients’ promises by high-end inspection of quality and geometry on
+          clients' promises by high-end inspection of quality and geometry on
           CMM.
         </p>
 
@@ -256,7 +256,6 @@ const HomePage = ({ setCurrentPage }) => {
           READ MORE
         </button>
       </div>
-
       {/* FEATURES SECTION */}
       <div
         style={{
@@ -406,8 +405,9 @@ const HomePage = ({ setCurrentPage }) => {
               fontWeight: "bold",
               textAlign: "center",
               marginBottom: "3rem",
-              color: "#1f2937",
-              textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)",
+              color: "#FFFFFF",
+              textShadow: "3px 3px 8px rgba(0, 0, 0, 0.9)",
+              letterSpacing: "1px",
             }}
           >
             Sectors We Serve

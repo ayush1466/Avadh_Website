@@ -4,6 +4,7 @@
 // ============================================
 
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
@@ -17,6 +18,10 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   const renderPage = () => {
     switch(currentPage) {

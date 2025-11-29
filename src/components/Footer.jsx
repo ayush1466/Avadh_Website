@@ -6,15 +6,15 @@ const Footer = ({ setCurrentPage }) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
-    const url = `https://wa.me/919876543210?text=${encodeURIComponent("Hello, I would like to inquire about your CNC machining services.")}`;
+    const url = `https://wa.me/9825995010?text=${encodeURIComponent("Hello, I would like to inquire about your CNC machining services.")}`;
     window.open(url, '_blank');
   };
 
   const socialLinks = [
-    { name: 'Email', icon: Mail, color: '#60a5fa', action: () => window.location.href = 'mailto:info@precisioncncworks.com' },
-    { name: 'LinkedIn', icon: Linkedin, color: '#0A66C2', action: () => window.open('https://www.linkedin.com/company/yourcompany', '_blank') },
+    { name: 'Email', icon: Mail, color: '#60a5fa', action: () => window.location.href = 'avadheng@gmail.com' },
+    { name: 'LinkedIn', icon: Linkedin, color: '#0A66C2', action: () => window.open('https://www.linkedin.com/company/avadh-enterprise2011/', '_blank') },
     { name: 'Facebook', icon: Facebook, color: '#1877F2', action: () => window.open('https://www.facebook.com/yourcompany', '_blank') },
-    { name: 'Instagram', icon: Instagram, color: '#E1306C', action: () => window.open('https://www.instagram.com/yourcompany', '_blank') }
+    { name: 'Instagram', icon: Instagram, color: '#E1306C', action: () => window.open('https://www.instagram.com/avadheng/?igsh=MTc2OWk0bWl2d2dpOA%3D%3D#', '_blank') }
   ];
 
   const quickLinks = [
@@ -39,7 +39,7 @@ const Footer = ({ setCurrentPage }) => {
   const linkStyle = {
     background: 'none',
     border: 'none',
-    color: '#d1d5db',
+    color: '#0F172A',
     cursor: 'pointer',
     fontSize: '0.875rem',
     padding: '0.25rem 0',
@@ -84,7 +84,7 @@ const Footer = ({ setCurrentPage }) => {
 
   return (
     <footer style={{
-      backgroundColor: 'rgba(17, 24, 39, 0.95)',
+      backgroundColor: '#ADD8E6',
       backdropFilter: 'blur(10px)',
       color: 'white',
       padding: '3rem 0 1rem',
@@ -101,20 +101,21 @@ const Footer = ({ setCurrentPage }) => {
           
           {/* Company Info */}
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#60a5fa' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0F172A' }}>
               Precision CNC Works
             </h3>
-            <p style={{ color: '#d1d5db', fontSize: '0.875rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+            <p style={{ color: '#0F172A', fontSize: '0.875rem', lineHeight: '1.6', marginBottom: '1rem' }}>
               Leading provider of high-quality CNC machining services with state-of-the-art equipment and expert craftsmanship.
+              with trust and greed to encourage new technologies and business opportunities,Avadh always strengthens its relationship with their clients.
             </p>
-            <p style={{ color: '#9ca3af', fontSize: '0.75rem', fontStyle: 'italic' }}>
+            <p style={{ color: '#0F172A', fontSize: '0.75rem', fontStyle: 'italic' }}>
               ISO 9001:2015 Certified
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1rem', color: '#60a5fa' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0F172A' }}>
               Quick Links
             </h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -123,7 +124,7 @@ const Footer = ({ setCurrentPage }) => {
                   <button
                     onClick={() => handleLinkClick(link.id)}
                     style={linkStyle}
-                    onMouseEnter={(e) => e.target.style.color = '#60a5fa'}
+                    onMouseEnter={(e) => e.target.style.color = '#0F172A'}
                     onMouseLeave={(e) => e.target.style.color = '#d1d5db'}
                   >
                     → {link.label}
@@ -136,7 +137,7 @@ const Footer = ({ setCurrentPage }) => {
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                  onMouseEnter={(e) => e.target.style.color = '#60a5fa'}
+                  onMouseEnter={(e) => e.target.style.color = '#0F172A'}
                   onMouseLeave={(e) => e.target.style.color = '#d1d5db'}
                 >
                   → Services
@@ -155,7 +156,7 @@ const Footer = ({ setCurrentPage }) => {
                       <li key={service.id} style={{ marginBottom: '0.4rem' }}>
                         <button
                           onClick={() => handleLinkClick(service.id)}
-                          style={{ ...linkStyle, color: '#9ca3af', fontSize: '0.813rem' }}
+                          style={{ ...linkStyle, color: '#0F172A', fontSize: '0.813rem' }}
                           onMouseEnter={(e) => e.target.style.color = '#60a5fa'}
                           onMouseLeave={(e) => e.target.style.color = '#9ca3af'}
                         >
@@ -171,28 +172,29 @@ const Footer = ({ setCurrentPage }) => {
 
           {/* Contact Info */}
           <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1rem', color: '#60a5fa' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0F172A' }}>
               Contact Info
             </h3>
-            <div style={{ color: '#d1d5db', fontSize: '0.875rem' }}>
+            <div style={{ color: '#0F172A', fontSize: '0.875rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                 <MapPin size={16} style={{ marginRight: '0.5rem', marginTop: '0.25rem', flexShrink: 0 }} />
-                <span>Plot No. 123, Industrial Area,<br />Ahmedabad, Gujarat 382330</span>
+                <span>B-230, Swarnim Ind. Park-2, Bakrol-Dhamatvan road, Bakrol-Bujrang,<br />Ahmedabad, Gujarat 382430</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}>
                 <Phone size={16} style={{ marginRight: '0.5rem' }} />
-                <span>+91 98765 43210</span>
+                <span>+91 9825995010 <br /> +91 9173886117  </span>
+              
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Mail size={16} style={{ marginRight: '0.5rem' }} />
-                <span>info@precisioncncworks.com</span>
+                <span>avadheng@gmail.com</span>
               </div>
             </div>
           </div>
 
           {/* Social Media */}
           <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1rem', color: '#60a5fa' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0F172A' }}>
               Connect With Us
             </h3>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -243,10 +245,10 @@ const Footer = ({ setCurrentPage }) => {
           marginTop: '2rem',
           textAlign: 'center'
         }}>
-          <p style={{ color: '#9ca3af', fontSize: '0.875rem', marginBottom: '0.5rem' }}>
-            &copy; 2025 Precision CNC Works. All rights reserved.
+          <p style={{ color: '#0F172A', fontSize: '0.875rem', marginBottom: '0.5rem' }}>
+            &copy;Avadh Enterprise
           </p>
-          <p style={{ color: '#6b7280', fontSize: '0.75rem' }}>
+          <p style={{ color: '#0F172A', fontSize: '0.75rem' }}>
             Quality CNC Machining Services | Made with ❤️ in India
           </p>
         </div>

@@ -16,7 +16,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   return (
     <nav
       style={{
-        backgroundColor: "#111827",
+        backgroundColor: "#ADD8E6",
         color: "white",
         position: "sticky",
         top: 0,
@@ -63,10 +63,10 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 fontWeight: "bold",
                 fontSize: "1.25rem",
                 marginLeft: "0.5rem",
-                color: "rgba(233, 97, 97, 1)",
+                color: "#0F172A",
               }}
             >
-              AVADH ENTERPRISE 
+              AVADH ENTERPRISE
             </span>
           </div>
 
@@ -78,17 +78,18 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 style={{
                   background: "none",
                   border: "none",
-                  color: currentPage === item.id ? "#60a5fa" : "white",
+                  color: currentPage === item.id ? "#60a5fa" : "#0F172A",
                   cursor: "pointer",
                   padding: "0.5rem",
                   fontSize: "1rem",
                   borderBottom:
                     currentPage === item.id ? "2px solid #60a5fa" : "none",
+                  transition: "0.2s",
                 }}
                 onMouseEnter={(e) => (e.target.style.color = "#60a5fa")}
                 onMouseLeave={(e) =>
                   (e.target.style.color =
-                    currentPage === item.id ? "#60a5fa" : "white")
+                    currentPage === item.id ? "#60a5fa" : "#0F172A")
                 }
               >
                 {item.label}
@@ -124,13 +125,19 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                   display: "block",
                   width: "100%",
                   textAlign: "left",
-                  padding: "0.5rem 0",
+                  padding: "0.8rem 0",
                   background: "none",
                   border: "none",
-                  color: currentPage === item.id ? "#60a5fa" : "white",
+                  color: currentPage === item.id ? "#60a5fa" : "#0F172A", // FIXED
                   cursor: "pointer",
-                  fontSize: "1rem",
+                  fontSize: "1.1rem",
+                  transition: "0.2s",
                 }}
+                onMouseEnter={(e) => (e.target.style.color = "#60a5fa")}
+                onMouseLeave={(e) =>
+                  (e.target.style.color =
+                    currentPage === item.id ? "#60a5fa" : "#0F172A")
+                }
               >
                 {item.label}
               </button>
