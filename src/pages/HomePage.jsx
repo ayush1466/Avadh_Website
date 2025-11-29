@@ -86,9 +86,10 @@ const HomePage = ({ setCurrentPage }) => {
     <div
       style={{
         minHeight: "100vh",
-        backgroundImage: "url('/assets/fac2.jpg')",
+        backgroundImage: "url('/assets/faccom.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
       }}
     >
