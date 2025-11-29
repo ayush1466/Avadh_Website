@@ -49,7 +49,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           >
             {/* Logo Image */}
             <img
-              src="public/logo.jpg" // put your logo in public/logo.png
+              src="/logo.jpg" // put your logo in public/logo.png
               alt="Avadh Engineering Logo"
               style={{
                 width: "32px",

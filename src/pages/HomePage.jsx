@@ -86,7 +86,7 @@ const HomePage = ({ setCurrentPage }) => {
     <div
       style={{
         minHeight: "100vh",
-        backgroundImage: "url('public/assets/fac2.jpg')",
+        backgroundImage: "url('/assets/fac2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -104,7 +104,7 @@ const HomePage = ({ setCurrentPage }) => {
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center" }}>
             <img
-              src="public/indian.png"
+              src="/indian.png"
               alt="Company Logo"
               style={{
                 width: "300px", // change size if needed
