@@ -81,7 +81,7 @@ const HomePage = ({ setCurrentPage }) => {
   return (
     <>
       {/* SECTION WITH FACTORY BACKGROUND */}
-      <div style={{ minHeight: "100vh", backgroundImage: "url('/assets/faccom.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
+      <div style={{ minHeight: "100vh", backgroundImage: "url('/assets/new.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
         
         {/* HERO SECTION */}
         <div style={{ color: "white", padding: "8rem 2rem", textAlign: "center" }}>
@@ -161,10 +161,10 @@ const HomePage = ({ setCurrentPage }) => {
       <div style={{ backgroundColor: "white", padding: "4rem 2rem", marginTop: "4rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center" }}>
           <div>
-            <p style={{ color: "#FF2D2D", fontSize: "0.875rem", fontWeight: "600", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>Applications</p>
-            <h2 style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: "bold", marginBottom: "1.5rem", color: "#000000", lineHeight: "1.2" }}>Our Specialty in Sectors</h2>
+            <p style={{ color: "#FF2D2D", fontSize: "0.875rem", fontWeight: "600", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>Our Facility</p>
+            <h2 style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: "bold", marginBottom: "1.5rem", color: "#000000", lineHeight: "1.2" }}>Where Quality Manufacturing Takes Shape</h2>
             <p style={{ color: "#4b5563", fontSize: "1rem", lineHeight: "1.8", marginBottom: "2rem" }}>
-              Pushpak Trademech Limited has been a pioneer in the High Precision Engineering sector since Renowned establish in 1980. Renowned for its meticulous craftsmanship Aerospace, Defence, Space, Application, Mining, Cement Industries, Sugar Mill Plants, Thermal Power Plant, Hydro Power plant Wind Mill, Nuclear, Oil & Gas, Rubber, Railway Automotive and etc.
+              Avadh Enterprise is a technologically advanced and structurally strong manufacturing space designed for high-precision work and timely execution. Supported by modern CNC machinery, reliable infrastructure, and an experienced technical team, we ensure superior quality and efficiency in every sector we cater to.
             </p>
             <button onClick={() => setCurrentPage("about")} style={{ backgroundColor: "#FF2D2D", color: "white", padding: "0.75rem 1.5rem", fontSize: "1rem", border: "none", borderRadius: "4px", cursor: "pointer", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
               onMouseEnter={(e) => e.target.style.backgroundColor = "#D51F1F"}
