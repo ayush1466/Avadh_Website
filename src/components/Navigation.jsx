@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, Cog } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navigation = ({ currentPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,19 +16,19 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   return (
     <nav
       style={{
-        backgroundColor: "#ADD8E6",
-        color: "white",
+        background: "linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)",
         position: "sticky",
         top: 0,
         zIndex: 50,
-        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+        borderBottom: "3px solid #fbbf24",
       }}
     >
       <div
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "0 1rem",
+          padding: "0 1.5rem",
         }}
       >
         <div
@@ -36,40 +36,71 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            height: "64px",
+            height: "80px",
           }}
         >
+          {/* Logo Section */}
           <div
             onClick={() => setCurrentPage("home")}
             style={{
               display: "flex",
               alignItems: "center",
-              cursor: "pointer", // makes it look clickable
+              cursor: "pointer",
+              transition: "transform 0.3s ease",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
           >
-            {/* Logo Image */}
-            <img
-              src="/logo.jpg" // put your logo in public/logo.png
-              alt="Avadh Engineering Logo"
+            <div
               style={{
-                width: "32px",
-                height: "32px",
-                objectFit: "contain",
-              }}
-            />
-
-            <span
-              style={{
-                fontWeight: "bold",
-                fontSize: "1.25rem",
-                marginLeft: "0.5rem",
-                color: "#0F172A",
+                width: "50px",
+                height: "50px",
+                background: "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 10px rgba(251, 191, 36, 0.3)",
               }}
             >
-              AVADH ENTERPRISE
-            </span>
+              <img
+                src="/logo.jpg"
+                alt="Avadh Engineering Logo"
+                style={{
+                  width: "35px",
+                  height: "35px",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+
+            <div style={{ marginLeft: "1rem" }}>
+              <div
+                style={{
+                  fontWeight: "800",
+                  fontSize: "1.4rem",
+                  color: "red",
+                  letterSpacing: "0.5px",
+                  lineHeight: "1.2",
+                }}
+              >
+                AVADH ENTERPRISE
+              </div>
+              <div
+                style={{
+                  fontSize: "0.7rem",
+                  color: "#fbbf24",
+                  fontWeight: "500",
+                  letterSpacing: "1px",
+                  marginTop: "2px",
+                }}
+              >
+                ENGINEERING EXCELLENCE
+              </div>
+            </div>
           </div>
 
+          {/* Desktop Menu */}
           <div style={{ display: "none" }} className="desktop-menu">
             {navItems.map((item) => (
               <button
@@ -78,43 +109,91 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 style={{
                   background: "none",
                   border: "none",
-                  color: currentPage === item.id ? "#60a5fa" : "#0F172A",
+                  color: currentPage === item.id ? "#fbbf24" : "#e0e7ff",
                   cursor: "pointer",
-                  padding: "0.5rem",
+                  padding: "0.6rem 1.2rem",
                   fontSize: "1rem",
-                  borderBottom:
-                    currentPage === item.id ? "2px solid #60a5fa" : "none",
-                  transition: "0.2s",
+                  fontWeight: currentPage === item.id ? "700" : "500",
+                  position: "relative",
+                  transition: "all 0.3s ease",
+                  letterSpacing: "0.3px",
                 }}
-                onMouseEnter={(e) => (e.target.style.color = "#60a5fa")}
-                onMouseLeave={(e) =>
-                  (e.target.style.color =
-                    currentPage === item.id ? "#60a5fa" : "#0F172A")
-                }
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#fbbf24";
+                  e.target.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = currentPage === item.id ? "#fbbf24" : "#e0e7ff";
+                  e.target.style.transform = "translateY(0)";
+                }}
               >
                 {item.label}
+                {currentPage === item.id && (
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: "0",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "80%",
+                      height: "3px",
+                      background: "linear-gradient(90deg, transparent, #fbbf24, transparent)",
+                      borderRadius: "2px",
+                    }}
+                  />
+                )}
               </button>
             ))}
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             style={{
-              background: "none",
-              border: "none",
-              color: "white",
+              background: isOpen ? "#fbbf24" : "rgba(255, 255, 255, 0.1)",
+              border: "2px solid",
+              borderColor: isOpen ? "#fbbf24" : "#e0e7ff",
+              color: isOpen ? "#1e3a8a" : "#ffffff",
               cursor: "pointer",
-              padding: "0.5rem",
+              padding: "0.6rem",
+              borderRadius: "8px",
+              transition: "all 0.3s ease",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
             className="mobile-menu-button"
+            onMouseEnter={(e) => {
+              if (!isOpen) {
+                e.target.style.background = "rgba(251, 191, 36, 0.2)";
+                e.target.style.borderColor = "#fbbf24";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isOpen) {
+                e.target.style.background = "rgba(255, 255, 255, 0.1)";
+                e.target.style.borderColor = "#e0e7ff";
+              }
+            }}
           >
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {isOpen && (
-          <div style={{ paddingBottom: "1rem" }} className="mobile-nav">
-            {navItems.map((item) => (
+          <div
+            style={{
+              paddingBottom: "1rem",
+              background: "rgba(30, 64, 175, 0.95)",
+              borderRadius: "8px",
+              marginTop: "0.5rem",
+              padding: "1rem",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+            }}
+            className="mobile-nav"
+          >
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => {
@@ -125,19 +204,30 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                   display: "block",
                   width: "100%",
                   textAlign: "left",
-                  padding: "0.8rem 0",
-                  background: "none",
+                  padding: "1rem",
+                  background: currentPage === item.id ? "rgba(251, 191, 36, 0.15)" : "transparent",
                   border: "none",
-                  color: currentPage === item.id ? "#60a5fa" : "#0F172A", // FIXED
+                  borderLeft: currentPage === item.id ? "4px solid #fbbf24" : "4px solid transparent",
+                  color: currentPage === item.id ? "#fbbf24" : "#e0e7ff",
                   cursor: "pointer",
                   fontSize: "1.1rem",
-                  transition: "0.2s",
+                  fontWeight: currentPage === item.id ? "700" : "500",
+                  transition: "all 0.3s ease",
+                  borderRadius: "6px",
+                  marginBottom: index < navItems.length - 1 ? "0.5rem" : "0",
                 }}
-                onMouseEnter={(e) => (e.target.style.color = "#60a5fa")}
-                onMouseLeave={(e) =>
-                  (e.target.style.color =
-                    currentPage === item.id ? "#60a5fa" : "#0F172A")
-                }
+                onMouseEnter={(e) => {
+                  e.target.style.background = "rgba(251, 191, 36, 0.15)";
+                  e.target.style.borderLeft = "4px solid #fbbf24";
+                  e.target.style.color = "#fbbf24";
+                  e.target.style.paddingLeft = "1.5rem";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = currentPage === item.id ? "rgba(251, 191, 36, 0.15)" : "transparent";
+                  e.target.style.borderLeft = currentPage === item.id ? "4px solid #fbbf24" : "4px solid transparent";
+                  e.target.style.color = currentPage === item.id ? "#fbbf24" : "#e0e7ff";
+                  e.target.style.paddingLeft = "1rem";
+                }}
               >
                 {item.label}
               </button>
@@ -151,12 +241,13 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           display: none;
         }
         .mobile-menu-button {
-          display: block;
+          display: flex;
         }
         @media (min-width: 768px) {
           .desktop-menu {
             display: flex !important;
-            gap: 2rem;
+            gap: 0.5rem;
+            align-items: center;
           }
           .mobile-menu-button {
             display: none !important;

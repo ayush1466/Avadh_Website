@@ -11,7 +11,7 @@ const Footer = ({ setCurrentPage }) => {
   };
 
   const socialLinks = [
-    { name: 'Email', icon: Mail, color: '#60a5fa', action: () => window.location.href = 'avadheng@gmail.com' },
+    { name: 'Email', icon: Mail, color: '#60a5fa', action: () => window.location.href = 'mailto:avadheng@gmail.com' },
     { name: 'LinkedIn', icon: Linkedin, color: '#0A66C2', action: () => window.open('https://www.linkedin.com/company/avadh-enterprise2011/', '_blank') },
     { name: 'Facebook', icon: Facebook, color: '#1877F2', action: () => window.open('https://www.facebook.com/yourcompany', '_blank') },
     { name: 'Instagram', icon: Instagram, color: '#E1306C', action: () => window.open('https://www.instagram.com/avadheng/?igsh=MTc2OWk0bWl2d2dpOA%3D%3D#', '_blank') }

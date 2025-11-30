@@ -97,8 +97,8 @@ const HomePage = ({ setCurrentPage }) => {
       Icon: () => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
+          width="25"
+          height="25"
           viewBox="0 0 24 24"
           fill="none"
           stroke="#4DB8FF"
@@ -119,14 +119,14 @@ const HomePage = ({ setCurrentPage }) => {
 
   // Specialty sectors for scrollable section
   const specialtySectors = [
-    { name: "SPACE APPLICATION", image: "/assets/space.jpg" },
-    { name: "COMPOSITES", image: "/assets/aerospace.jpg" },
-    { name: "DEFENSE EQUIPMENT'S", image: "/assets/defense.jpg" },
-    { name: "POWER PLANT", image: "/assets/powerplant.jpg" },
-    { name: "AUTOMOTIVE", image: "/assets/automotive.jpg" },
-    { name: "OIL & GAS", image: "/assets/oilgas.jpg" },
-    { name: "STEEL", image: "/assets/steel.jpg" },
-    { name: "CHEMICAL", image: "/assets/chemical.jpg" },
+    { name: "INFRASTRUCTURE", image: "/assets/img8.jpeg" },
+    { name: "VMC 3000x2000", image: "/assets/img3.jpeg" },
+    { name: "VMC", image: "/assets/img7.jpeg" },
+    { name: "HMC 400x400", image: "/assets/img6.jpeg" },
+    { name: "HMC 630x630", image: "/assets/img4.jpeg" },
+    { name: "HMC 300x300", image: "/assets/img5.jpeg" },
+    { name: "H-BORING", image: "/assets/img1.jpeg" },
+    { name: "H-BORINGx2", image: "/assets/img2.jpeg" },
   ];
 
   // Auto-slide effect
@@ -267,7 +267,7 @@ const HomePage = ({ setCurrentPage }) => {
                 style={{
                   fontSize: "1.1rem",
                   marginBottom: "1.5rem",
-                  fontWeight: "bold",
+                  fontFamily: "'Roboto', 'Helvetica Neue', Arial, sans-serif",
                   color: "#000000",
                 }}
               >
@@ -278,7 +278,7 @@ const HomePage = ({ setCurrentPage }) => {
               onClick={() => setCurrentPage("about")}
               style={{
                 backgroundColor: "#cc0000",
-                color: "#fff",
+                color: "#ffff",
                 padding: "0.8rem 2rem",
                 fontSize: "1rem",
                 border: "none",
