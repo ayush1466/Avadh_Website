@@ -20,15 +20,33 @@ export default defineConfig({
     }),
 
     // IMAGE COMPRESSION
-    viteImagemin({
-      gifsicle: { optimizationLevel: 3 },
-      optipng: { optimizationLevel: 5 },
-      mozjpeg: { quality: 70 },        // compress jpg
-      pngquant: { quality: [0.6, 0.8] }, // compress png
-      svgo: {
-        plugins: [{ name: "removeViewBox", active: false }],
-      },
-    }),
+  viteImagemin({
+  gifsicle: { optimizationLevel: 3 },
+  optipng: { optimizationLevel: 7 },
+  mozjpeg: { 
+    quality: 80,
+    progressive: true,
+  },
+  pngquant: { 
+    quality: [0.7, 0.85],
+    speed: 4 
+  },
+  svgo: {
+    plugins: [
+      { name: "removeViewBox", active: false },
+    ],
+  },
+  jpeg: {
+    quality: 80,
+    progressive: true,
+    stripMetadata: true,
+  },
+  // Exclude infrastructure image from optimization
+  exclude: [
+    '**/img8.jpeg',
+    '**/img8.jpg',
+  ],
+}),
   ],
 
   build: {
