@@ -21,14 +21,25 @@ export default defineConfig({
 
     // IMAGE COMPRESSION
     viteImagemin({
-      gifsicle: { optimizationLevel: 3 },
-      optipng: { optimizationLevel: 5 },
-      mozjpeg: { quality: 70 },        // compress jpg
-      pngquant: { quality: [0.6, 0.8] }, // compress png
-      svgo: {
-        plugins: [{ name: "removeViewBox", active: false }],
-      },
-    }),
+  gifsicle: { optimizationLevel: 3 },
+  optipng: { optimizationLevel: 5 },
+  mozjpeg: { 
+    quality: 70,
+    progressive: true,
+    // Don't strip metadata
+  },
+  pngquant: { quality: [0.6, 0.8] },
+  svgo: {
+    plugins: [{ name: "removeViewBox", active: false }],
+  },
+  // Add this to preserve image orientation
+  jpeg: {
+    quality: 70,
+    progressive: true,
+    // Keep EXIF data
+    stripMetadata: false,
+  },
+}),
   ],
 
   build: {
