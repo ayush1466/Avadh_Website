@@ -45,6 +45,8 @@ export default defineConfig({
   exclude: [
     '**/img8.jpeg',
     '**/img8.jpg',
+    '**/img1.jpg',
+    '**/img1.jpeg',
   ],
 }),
   ],
