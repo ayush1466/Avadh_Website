@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const ServicesPage = () => {
   const [showQuoteModal, setShowQuoteModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const services = [
     {
@@ -16,7 +24,7 @@ const ServicesPage = () => {
         "Low & High Volume Production",
         "Automotive, Engineering & Heavy Machinery",
       ],
-      image: "/assets/services/cnc-machining.jpg",
+      image: "/assets/cncmachine.jpeg",
       accent: "#2563eb",
     },
     {
@@ -29,7 +37,7 @@ const ServicesPage = () => {
         "Uniform Shape & Density",
         "Construction & Infrastructure Industry",
       ],
-      image: "/assets/services/block-mould.jpg",
+      image: "/assets/moldblock.jpeg",
       accent: "#16a34a",
     },
     {
@@ -42,7 +50,7 @@ const ServicesPage = () => {
         "In-Process & Final Inspection",
         "Detailed Inspection Reports",
       ],
-      image: "/assets/services/cmm-inspection.jpg",
+      image: "/assets/inspection.jpeg",
       accent: "#9333ea",
     },
   ];
@@ -58,11 +66,7 @@ const ServicesPage = () => {
         "Thank you."
     );
 
-    window.open(
-  "https://wa.me/919724447825?text=" + message,
-  "_blank"
-);
-
+    window.open("https://wa.me/919724447825?text=" + message, "_blank");
   };
 
   const handleEmailQuote = () => {
@@ -84,7 +88,7 @@ const ServicesPage = () => {
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "6rem 1rem 5rem",
+          padding: isMobile ? "4rem 1rem 3rem" : "6rem 1rem 5rem",
           textAlign: "center",
         }}
       >
@@ -92,13 +96,17 @@ const ServicesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          style={{ fontSize: "3rem", fontWeight: 800, marginBottom: "1rem" }}
+          style={{
+            fontSize: isMobile ? "2rem" : "3rem",
+            fontWeight: 800,
+            marginBottom: "1rem",
+          }}
         >
           Precision Manufacturing Services
         </motion.h1>
         <p
           style={{
-            fontSize: "1.25rem",
+            fontSize: isMobile ? "1rem" : "1.25rem",
             color: "#475569",
             maxWidth: "720px",
             margin: "0 auto",
@@ -110,7 +118,13 @@ const ServicesPage = () => {
       </section>
 
       {/* SERVICES */}
-      <section style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem 6rem" }}>
+      <section
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: isMobile ? "0 1rem 4rem" : "0 1rem 6rem",
+        }}
+      >
         {services.map((service, index) => (
           <motion.div
             key={index}
@@ -120,14 +134,18 @@ const ServicesPage = () => {
             transition={{ duration: 0.6 }}
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "4rem",
+              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+              gap: isMobile ? "2rem" : "4rem",
               alignItems: "center",
-              marginBottom: "6rem",
+              marginBottom: isMobile ? "4rem" : "6rem",
             }}
           >
             {/* TEXT */}
-            <div style={{ order: index % 2 === 0 ? 1 : 2 }}>
+            <div
+              style={{
+                order: isMobile ? 1 : index % 2 === 0 ? 1 : 2,
+              }}
+            >
               <div
                 style={{
                   display: "inline-flex",
@@ -145,11 +163,24 @@ const ServicesPage = () => {
                 <Sparkles size={14} /> Premium Service
               </div>
 
-              <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "1rem" }}>
+              <h2
+                style={{
+                  fontSize: isMobile ? "1.5rem" : "2rem",
+                  fontWeight: 700,
+                  marginBottom: "1rem",
+                }}
+              >
                 {service.title}
               </h2>
 
-              <p style={{ color: "#475569", lineHeight: 1.7, marginBottom: "1.5rem" }}>
+              <p
+                style={{
+                  color: "#475569",
+                  lineHeight: 1.7,
+                  marginBottom: "1.5rem",
+                  fontSize: isMobile ? "0.95rem" : "1rem",
+                }}
+              >
                 {service.description}
               </p>
 
@@ -162,12 +193,13 @@ const ServicesPage = () => {
                       alignItems: "center",
                       marginBottom: "0.75rem",
                       fontWeight: 500,
+                      fontSize: isMobile ? "0.9rem" : "1rem",
                     }}
                   >
                     <ChevronRight
                       size={18}
                       color={service.accent}
-                      style={{ marginRight: "0.5rem" }}
+                      style={{ marginRight: "0.5rem", flexShrink: 0 }}
                     />
                     {feature}
                   </li>
@@ -176,7 +208,11 @@ const ServicesPage = () => {
             </div>
 
             {/* IMAGE */}
-            <div style={{ order: index % 2 === 0 ? 2 : 1 }}>
+            <div
+              style={{
+                order: isMobile ? 2 : index % 2 === 0 ? 2 : 1,
+              }}
+            >
               <div
                 style={{
                   borderRadius: "1.25rem",
@@ -187,7 +223,11 @@ const ServicesPage = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  style={{ width: "100%", height: "360px", objectFit: "cover" }}
+                  style={{
+                    width: "100%",
+                    height: isMobile ? "240px" : "360px",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
             </div>
@@ -199,26 +239,40 @@ const ServicesPage = () => {
       <section
         style={{
           background: "linear-gradient(135deg,#1e3a8a,#2563eb)",
-          padding: "4rem 1rem",
+          padding: isMobile ? "3rem 1rem" : "4rem 1rem",
           textAlign: "center",
           color: "white",
         }}
       >
-        <h2 style={{ fontSize: "2.25rem", fontWeight: 700, marginBottom: "1rem" }}>
-          Let’s Build Something Exceptional
+        <h2
+          style={{
+            fontSize: isMobile ? "1.75rem" : "2.25rem",
+            fontWeight: 700,
+            marginBottom: "1rem",
+          }}
+        >
+          Let's Build Something Exceptional
         </h2>
-        <p style={{ maxWidth: "640px", margin: "0 auto 2rem", opacity: 0.9 }}>
-          From prototype to production, we deliver precision components you can trust.
+        <p
+          style={{
+            maxWidth: "640px",
+            margin: "0 auto 2rem",
+            opacity: 0.9,
+            fontSize: isMobile ? "0.95rem" : "1rem",
+          }}
+        >
+          From prototype to production, we deliver precision components you can
+          trust.
         </p>
         <button
           onClick={() => setShowQuoteModal(true)}
           style={{
             background: "white",
             color: "#1e3a8a",
-            padding: "0.75rem 2rem",
+            padding: isMobile ? "0.65rem 1.5rem" : "0.75rem 2rem",
             borderRadius: "999px",
             fontWeight: 600,
-            fontSize: "1rem",
+            fontSize: isMobile ? "0.95rem" : "1rem",
             cursor: "pointer",
             border: "none",
           }}
@@ -230,6 +284,7 @@ const ServicesPage = () => {
       {/* QUOTE MODAL */}
       {showQuoteModal && (
         <div
+          onClick={() => setShowQuoteModal(false)}
           style={{
             position: "fixed",
             inset: 0,
@@ -238,23 +293,36 @@ const ServicesPage = () => {
             alignItems: "center",
             justifyContent: "center",
             zIndex: 999,
+            padding: "1rem",
           }}
         >
           <div
+            onClick={(e) => e.stopPropagation()}
             style={{
               background: "white",
-              padding: "2.5rem",
+              padding: isMobile ? "2rem 1.5rem" : "2.5rem",
               borderRadius: "1rem",
               maxWidth: "420px",
               width: "100%",
               textAlign: "center",
             }}
           >
-            <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
+            <h3
+              style={{
+                fontSize: isMobile ? "1.25rem" : "1.5rem",
+                marginBottom: "0.5rem",
+              }}
+            >
               Request a Quote
             </h3>
-            <p style={{ color: "#64748b", marginBottom: "2rem" }}>
-              Choose how you’d like to share your requirements
+            <p
+              style={{
+                color: "#64748b",
+                marginBottom: "2rem",
+                fontSize: isMobile ? "0.9rem" : "1rem",
+              }}
+            >
+              Choose how you'd like to share your requirements
             </p>
 
             <button
@@ -269,6 +337,7 @@ const ServicesPage = () => {
                 marginBottom: "1rem",
                 border: "none",
                 cursor: "pointer",
+                fontSize: isMobile ? "0.95rem" : "1rem",
               }}
             >
               WhatsApp (Fast Response)
@@ -286,6 +355,7 @@ const ServicesPage = () => {
                 marginBottom: "1.5rem",
                 border: "none",
                 cursor: "pointer",
+                fontSize: isMobile ? "0.95rem" : "1rem",
               }}
             >
               Email (Formal Request)
@@ -298,6 +368,7 @@ const ServicesPage = () => {
                 color: "#64748b",
                 border: "none",
                 cursor: "pointer",
+                fontSize: isMobile ? "0.9rem" : "1rem",
               }}
             >
               Cancel

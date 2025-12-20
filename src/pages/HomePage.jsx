@@ -168,7 +168,7 @@ const HomePage = ({ setCurrentPage }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage: "url('/assets/new.jpg')",
+            backgroundImage: "url('/assets/newc.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
