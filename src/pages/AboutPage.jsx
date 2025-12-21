@@ -316,7 +316,8 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Company Story */}
+  
+    {/* Company Story */}
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
@@ -364,6 +365,138 @@ const AboutPage = () => {
               opacity: 0
             }}>
               Leveraging cutting-edge design technologies such as Mastercam, we ensure high-quality product development. Our high-end facility is well-equipped with advanced CNCs including VMC, HMC, Turning Centre, and H. Boring. We ensure our clients' promises through high-end inspection of quality and geometry on CMM.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Founders Section */}
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 1rem',
+        marginBottom: '4rem'
+      }}>
+        <div className="animate-fadeInUp" style={{
+          textAlign: 'center',
+          marginBottom: '3rem'
+        }}>
+          <h2 style={{
+            fontSize: '1.875rem',
+            fontWeight: 'bold',
+            color: '#111827',
+            marginBottom: '1rem'
+          }}>
+            Meet Our Founders
+          </h2>
+          <p style={{
+            fontSize: '1.125rem',
+            color: '#4b5563'
+          }}>
+            The visionary leaders behind AVADH's success
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '2rem'
+        }}>
+          {/* Founder */}
+          <div className="card-hover animate-fadeInLeft" style={{
+            backgroundColor: 'white',
+            borderRadius: '0.75rem',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+            padding: '2rem',
+            textAlign: 'center'
+          }}>
+            <div style={{
+              width: '180px',
+              height: '180px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+              margin: '0 auto 1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 10px 25px rgba(30, 58, 138, 0.3)',
+              overflow: 'hidden'
+            }}>
+              <div>
+             <img src="kaushik.webp" alt="Mr. Kaushik Patel" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            </div>
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              color: '#111827',
+              marginBottom: '0.5rem'
+            }}>
+              Mr. Kaushik Patel
+            </h3>
+            <p style={{
+              fontSize: '1rem',
+              color: '#3b82f6',
+              fontWeight: '600',
+              marginBottom: '1rem'
+            }}>
+              Founder & Managing Director
+            </p>
+            <p style={{
+              color: '#4b5563',
+              lineHeight: '1.6',
+              textAlign: 'left'
+            }}>
+              With a brilliant mindset in business development and accounting, Mr. Kaushik Patel has been the driving force behind AVADH's strategic growth. His vision and financial acumen have transformed the company from a single-machine operation into an ISO 9001:2015 certified industry leader. His commitment to excellence and sustainable business practices continues to guide the company's expansion and success.
+            </p>
+          </div>
+
+          {/* Co-Founder */}
+          <div className="card-hover animate-fadeInRight" style={{
+            backgroundColor: 'white',
+            borderRadius: '0.75rem',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+            padding: '2rem',
+            textAlign: 'center'
+          }}>
+            <div style={{
+              width: '180px',
+              height: '180px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)',
+              margin: '0 auto 1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 10px 25px rgba(79, 70, 229, 0.3)',
+              overflow: 'hidden'
+            }}>
+              <div>
+               <img src="alpesh.webp" alt="Mr. Alpesh Patel" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> 
+              </div>
+            </div>
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              color: '#111827',
+              marginBottom: '0.5rem'
+            }}>
+              Mr. Alpesh Patel
+            </h3>
+            <p style={{
+              fontSize: '1rem',
+              color: '#4f46e5',
+              fontWeight: '600',
+              marginBottom: '1rem'
+            }}>
+              Co-Founder & Technical Director
+            </p>
+            <p style={{
+              color: '#4b5563',
+              lineHeight: '1.6',
+              textAlign: 'left'
+            }}>
+              A genius mind with deep expertise in machinery and mechanical engineering, Mr. Alpesh Patel brings unparalleled technical knowledge to AVADH. His mastery of advanced CNC technologies, precision machining, and quality control systems forms the backbone of the company's operational excellence. His innovative approach to solving complex machining challenges has established AVADH's reputation for delivering superior quality products across diverse industries.
             </p>
           </div>
         </div>
