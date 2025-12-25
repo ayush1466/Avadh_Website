@@ -168,7 +168,7 @@ const HomePage = ({ setCurrentPage }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage: "url('/assets/newc.jpg')",
+            backgroundImage: "url('/assets/newc.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
