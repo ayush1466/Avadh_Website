@@ -414,16 +414,14 @@ const AboutPage = () => {
               width: '180px',
               height: '180px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
               margin: '0 auto 1.5rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 10px 25px rgba(30, 58, 138, 0.3)',
               overflow: 'hidden'
             }}>
               <div>
-             <img src="kaushik.webp" alt="Mr. Kaushik Patel" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+             <img src="kaushik.webp" alt="Mr. Kaushik Patel" style={{ width: '80%', height: '80%', objectFit: 'cover' }} />
               </div>
             </div>
             <h3 style={{
@@ -463,16 +461,14 @@ const AboutPage = () => {
               width: '180px',
               height: '180px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)',
               margin: '0 auto 1.5rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 10px 25px rgba(79, 70, 229, 0.3)',
               overflow: 'hidden'
             }}>
               <div>
-               <img src="alpesh.webp" alt="Mr. Alpesh Patel" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> 
+               <img src="alpesh.webp" alt="Mr. Alpesh Patel" style={{ width: '80%', height: '80%', objectFit: 'cover' }} /> 
               </div>
             </div>
             <h3 style={{
@@ -824,19 +820,6 @@ const AboutPage = () => {
           }}>
             Experience precision machining with close tolerances and exceptional quality control.
           </p>
-          <button className="button-hover" style={{
-            backgroundColor: 'white',
-            color: '#1e3a8a',
-            padding: '0.75rem 2rem',
-            borderRadius: '0.5rem',
-            fontWeight: '600',
-            border: 'none',
-            cursor: 'pointer',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-            fontSize: '1rem'
-          }}>
-            Get in Touch
-          </button>
         </div>
       </div>
     </div>

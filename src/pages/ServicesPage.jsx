@@ -66,12 +66,12 @@ const ServicesPage = () => {
         "Thank you."
     );
 
-    window.open("https://wa.me/919724447825?text=" + message, "_blank");
+    window.open("https://wa.me/919825995010?text=" + message, "_blank");
   };
 
   const handleEmailQuote = () => {
     window.location.href =
-      "mailto:sales@yourcompany.com" +
+      "mailto:avadheng@gmail.com" +
       "?subject=Request%20for%20Quote" +
       "&body=Hello,%0D%0A%0D%0A" +
       "I would like to request a quote.%0D%0A%0D%0A" +

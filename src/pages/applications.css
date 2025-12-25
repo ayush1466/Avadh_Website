@@ -1,0 +1,308 @@
+
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fafc, #dbeafe);
+  font-family: "Segoe UI", sans-serif;
+  color: #111827;
+}
+
+/* ================= SIDEBAR ================= */
+.app-sidebar {
+  width: 280px;
+  padding: 2rem;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+}
+
+.app-sidebar h2 {
+  color: #1e3a8a;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tab-list button {
+  width: 100%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  padding: 0.9rem;
+  margin-bottom: 0.7rem;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab-list button.active,
+.tab-list button:hover {
+  background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(29, 78, 216, 0.25);
+}
+
+/* ================= PANEL ================= */
+.app-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.panel-box {
+  max-width: 980px;
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+.image-box img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* ================= CONTENT ================= */
+.panel-content {
+  padding: 2.8rem;
+}
+
+.panel-content h1 {
+  color: #1e3a8a;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.panel-section span {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.panel-section p {
+  margin-top: 0.4rem;
+  margin-bottom: 1.6rem;
+  color: #374151;
+}
+
+/* ================= CHIPS ================= */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ================= EXTRA SECTIONS ================= */
+
+/* PROCESS */
+.process-section {
+  padding: 5rem 8%;
+  text-align: center;
+}
+
+.process-section h2 {
+  color: #1e3a8a;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.process-step {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.process-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #1d4ed8;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.process-step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(29,78,216,0.25);
+}
+
+/* MACHINES */
+.machines-section {
+  padding: 5rem 8%;
+}
+
+.machines-section h2 {
+  color: #1e3a8a;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.machine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.machine-card {
+  padding: 2rem;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.machine-card h4 {
+  color: #1e3a8a;
+  margin-bottom: 0.6rem;
+}
+
+.machine-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(29,78,216,0.25);
+}
+
+/* QUALITY */
+.quality-section {
+  padding: 5rem 8%;
+  text-align: center;
+}
+
+.quality-section h2 {
+  color: #1e3a8a;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.quality-section ul {
+  list-style: none;
+  max-width: 600px;
+  margin: auto;
+}
+
+.quality-section li {
+  padding: 0.9rem;
+  font-size: 1.05rem;
+  color: #374151;
+  border-bottom: 1px dashed #c7d2fe;
+}
+
+/* ================= REGIONS ================= */
+.regions-section {
+  padding: 5rem 8%;
+  text-align: center;
+  background: radial-gradient(circle at top, #020617, #02030f);
+}
+
+.regions-section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #22d3ee, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+.regions-section p {
+  color: #94a3b8;
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+.regions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.regions span {
+  padding: 0.75rem 1.7rem;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  color: #67e8f9;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+/* Hover = WOW */
+.regions span:hover {
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
+  color: #020617;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .app-root {
+    flex-direction: column;
+  }
+
+  .app-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .tab-list {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+  }
+
+  .tab-list button {
+    min-width: 180px;
+    text-align: center;
+  }
+
+  .panel-content h1 {
+    font-size: 2rem;
+  }
+
+  .applications-cta h2 {
+    font-size: 2rem;
+  }
+}

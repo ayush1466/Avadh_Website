@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';  // ← ADD THIS
+import WhatsAppFloat from './components/WhatsAppFloat'; 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';

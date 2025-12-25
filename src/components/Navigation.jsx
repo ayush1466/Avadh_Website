@@ -14,246 +14,197 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   ];
 
   return (
-    <nav
-      style={{
-        background: "linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)",
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
-        borderBottom: "3px solid #fbbf24",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 1.5rem",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            height: "80px",
-          }}
-        >
-          {/* Logo Section */}
-          <div
-            onClick={() => setCurrentPage("home")}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              cursor: "pointer",
-              transition: "transform 0.3s ease",
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
-            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-          >
-            <div
-              style={{
-                width: "50px",
-                height: "50px",
-                background: "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)",
-                borderRadius: "8px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 10px rgba(251, 191, 36, 0.3)",
-              }}
-            >
-              <img
-                src="/logo.jpg"
-                alt="Avadh Engineering Logo"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  objectFit: "contain",
-                }}
-              />
-            </div>
-
-            <div style={{ marginLeft: "1rem" }}>
-              <div
-                style={{
-                  fontWeight: "800",
-                  fontSize: "1.4rem",
-                  color: "red",
-                  letterSpacing: "0.5px",
-                  lineHeight: "1.2",
-                }}
-              >
-                AVADH ENTERPRISE
-              </div>
-              <div
-                style={{
-                  fontSize: "0.7rem",
-                  color: "#fbbf24",
-                  fontWeight: "500",
-                  letterSpacing: "1px",
-                  marginTop: "2px",
-                }}
-              >
-                ENGINEERING EXCELLENCE
-              </div>
-            </div>
+    <nav className="nav-wrapper">
+      <div className="nav-container">
+        {/* LOGO */}
+        <div className="logo" onClick={() => setCurrentPage("home")}>
+          <div className="logo-box">
+            <img src="/logo.jpg" alt="Logo" />
           </div>
-
-          {/* Desktop Menu */}
-          <div style={{ display: "none" }} className="desktop-menu">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentPage(item.id)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: currentPage === item.id ? "#fbbf24" : "#e0e7ff",
-                  cursor: "pointer",
-                  padding: "0.6rem 1.2rem",
-                  fontSize: "1rem",
-                  fontWeight: currentPage === item.id ? "700" : "500",
-                  position: "relative",
-                  transition: "all 0.3s ease",
-                  letterSpacing: "0.3px",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#fbbf24";
-                  e.target.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = currentPage === item.id ? "#fbbf24" : "#e0e7ff";
-                  e.target.style.transform = "translateY(0)";
-                }}
-              >
-                {item.label}
-                {currentPage === item.id && (
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: "0",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      width: "80%",
-                      height: "3px",
-                      background: "linear-gradient(90deg, transparent, #fbbf24, transparent)",
-                      borderRadius: "2px",
-                    }}
-                  />
-                )}
-              </button>
-            ))}
+          <div className="logo-text">
+            <h1>AVADH ENTERPRISE</h1>
+            <span>ENGINEERING EXCELLENCE</span>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            style={{
-              background: isOpen ? "#fbbf24" : "rgba(255, 255, 255, 0.1)",
-              border: "2px solid",
-              borderColor: isOpen ? "#fbbf24" : "#e0e7ff",
-              color: isOpen ? "#1e3a8a" : "#ffffff",
-              cursor: "pointer",
-              padding: "0.6rem",
-              borderRadius: "8px",
-              transition: "all 0.3s ease",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            className="mobile-menu-button"
-            onMouseEnter={(e) => {
-              if (!isOpen) {
-                e.target.style.background = "rgba(251, 191, 36, 0.2)";
-                e.target.style.borderColor = "#fbbf24";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!isOpen) {
-                e.target.style.background = "rgba(255, 255, 255, 0.1)";
-                e.target.style.borderColor = "#e0e7ff";
-              }
-            }}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div
-            style={{
-              paddingBottom: "1rem",
-              background: "rgba(30, 64, 175, 0.95)",
-              borderRadius: "8px",
-              marginTop: "0.5rem",
-              padding: "1rem",
-              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
-            }}
-            className="mobile-nav"
-          >
-            {navItems.map((item, index) => (
-              <button
-                key={item.id}
-                onClick={() => {
-                  setCurrentPage(item.id);
-                  setIsOpen(false);
-                }}
-                style={{
-                  display: "block",
-                  width: "100%",
-                  textAlign: "left",
-                  padding: "1rem",
-                  background: currentPage === item.id ? "rgba(251, 191, 36, 0.15)" : "transparent",
-                  border: "none",
-                  borderLeft: currentPage === item.id ? "4px solid #fbbf24" : "4px solid transparent",
-                  color: currentPage === item.id ? "#fbbf24" : "#e0e7ff",
-                  cursor: "pointer",
-                  fontSize: "1.1rem",
-                  fontWeight: currentPage === item.id ? "700" : "500",
-                  transition: "all 0.3s ease",
-                  borderRadius: "6px",
-                  marginBottom: index < navItems.length - 1 ? "0.5rem" : "0",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = "rgba(251, 191, 36, 0.15)";
-                  e.target.style.borderLeft = "4px solid #fbbf24";
-                  e.target.style.color = "#fbbf24";
-                  e.target.style.paddingLeft = "1.5rem";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = currentPage === item.id ? "rgba(251, 191, 36, 0.15)" : "transparent";
-                  e.target.style.borderLeft = currentPage === item.id ? "4px solid #fbbf24" : "4px solid transparent";
-                  e.target.style.color = currentPage === item.id ? "#fbbf24" : "#e0e7ff";
-                  e.target.style.paddingLeft = "1rem";
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        )}
+        {/* DESKTOP MENU */}
+        <div className="nav-links">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={`nav-link ${
+                currentPage === item.id ? "active" : ""
+              }`}
+              onClick={() => setCurrentPage(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        {/* MOBILE TOGGLE */}
+        <button className="menu-btn" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
       </div>
 
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="mobile-menu">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={`mobile-link ${
+                currentPage === item.id ? "active" : ""
+              }`}
+              onClick={() => {
+                setCurrentPage(item.id);
+                setIsOpen(false);
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* STYLES */}
       <style>{`
-        .desktop-menu {
+        .nav-wrapper {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          backdrop-filter: blur(12px);
+          background: rgba(15, 23, 42, 0.85);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+          max-width: 1280px;
+          margin: auto;
+          padding: 0 1.5rem;
+          height: 78px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        /* LOGO */
+        .logo {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          gap: 12px;
+        }
+
+        .logo-box {
+          width: 46px;
+          height: 46px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .logo-box img {
+          width: 30px;
+        }
+
+        .logo-text h1 {
+          font-size: 1.15rem;
+          font-weight: 800;
+          color: #ffffff;
+          margin: 0;
+        }
+
+        .logo-text span {
+          font-size: 0.7rem;
+          letter-spacing: 1px;
+          color: #ff2020ff;
+          font-weight: 800;
+        }
+
+        /* DESKTOP LINKS */
+        .nav-links {
           display: none;
         }
-        .mobile-menu-button {
-          display: flex;
+
+        .nav-link {
+          background: none;
+          border: none;
+          color: #e5e7eb;
+          font-size: 0.95rem;
+          font-weight: 500;
+          padding: 8px 14px;
+          cursor: pointer;
+          position: relative;
+          transition: color 0.3s ease;
         }
+
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -6px;
+          width: 0;
+          height: 2px;
+          background: #fbbf24;
+          transition: all 0.3s ease;
+          transform: translateX(-50%);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+          color: #fbbf24;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+          width: 70%;
+        }
+
+        /* MOBILE */
+        .menu-btn {
+          background: none;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        .mobile-menu {
+          background: rgba(15, 23, 42, 0.97);
+          padding: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .mobile-link {
+          display: block;
+          width: 100%;
+          padding: 14px;
+          background: none;
+          border: none;
+          color: #e5e7eb;
+          text-align: left;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .mobile-link.active,
+        .mobile-link:hover {
+          color: #fbbf24;
+          background: rgba(251,191,36,0.1);
+        }
+
+        /* RESPONSIVE */
         @media (min-width: 768px) {
-          .desktop-menu {
-            display: flex !important;
-            gap: 0.5rem;
-            align-items: center;
+          .nav-links {
+            display: flex;
+            gap: 8px;
           }
-          .mobile-menu-button {
-            display: none !important;
-          }
-          .mobile-nav {
-            display: none !important;
+          .menu-btn,
+          .mobile-menu {
+            display: none;
           }
         }
       `}</style>
