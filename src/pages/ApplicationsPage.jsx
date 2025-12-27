@@ -3,69 +3,119 @@ import "/src/pages/applications.css";
 
 const applicationsData = [
   {
-    title: "Power Plants",
-    image: "/assets/powerplant.jpg",
+    title: "Defense Support",
+    image: "/public/assets/defense.jpg",
     description:
-      "Precision-engineered components designed to withstand extreme heat, vibration, and continuous operation in thermal and power generation environments.",
-    problem: "High thermal stress, vibration & continuous heavy load",
+      "High-precision, mission-critical machined components manufactured under strict quality and confidentiality standards for defense applications.",
+    problem: "Zero-tolerance precision & extreme reliability requirements",
     solution:
-      "Heavy-duty CNC machining combined with reinforced structural fabrication",
+      "Advanced CNC machining with rigorous inspection and traceability",
     uses: [
-      "Boiler Structures",
-      "Turbine Base Frames",
-      "Heat Exchanger Components",
+      "Structural Housings",
+      "Mounting Assemblies",
+      "Defense Equipment Frames",
     ],
   },
   {
-    title: "Oil & Gas",
-    image: "/assets/oilgas.jpg",
+    title: "Aerospace",
+    image: "/public/assets/aerospace.jpg",
     description:
-      "Critical CNC machined components manufactured for high-pressure and corrosive oil & gas operations with strict safety standards.",
-    problem: "Extreme pressure, corrosion & safety-critical conditions",
+      "Lightweight yet high-strength aerospace components engineered for performance, safety, and dimensional accuracy.",
+    problem: "Tight tolerances & weight optimization",
     solution:
-      "High-strength precision machining with full material traceability",
-    uses: ["Flanges", "Valve Bodies", "Pressure Housings"],
+      "Precision CNC machining using aerospace-grade materials",
+    uses: [
+      "Brackets",
+      "Mounting Parts",
+      "Structural Aerospace Components",
+    ],
   },
   {
     title: "Infrastructure",
-    image: "/assets/infrastructure.jpg",
+    image: "/public/assets/infa.webp",
     description:
-      "Structural and load-bearing fabricated components for large-scale infrastructure and construction projects.",
-    problem: "Heavy load bearing & long-term durability requirements",
-    solution: "Custom fabricated and machined steel components",
-    uses: ["Anchor Plates", "Steel Frames", "Support Brackets"],
+      "Robust fabricated and machined components designed to support heavy loads in large-scale infrastructure projects.",
+    problem: "High load bearing & long-term durability",
+    solution:
+      "Custom steel fabrication with precision machining",
+    uses: [
+      "Anchor Plates",
+      "Support Brackets",
+      "Structural Frames",
+    ],
+  },
+  {
+    title: "Chemical Industry",
+    image: "/public/assets/chemical.jpg",
+    description:
+      "Corrosion-resistant machined components for chemical processing plants operating in aggressive environments.",
+    problem: "Corrosion, pressure & chemical exposure",
+    solution:
+      "Material-specific CNC machining with surface protection",
+    uses: [
+      "Pump Components",
+      "Reactor Parts",
+      "Valve Bodies",
+    ],
   },
   {
     title: "Heavy Engineering",
-    image: "/assets/heavy.jpg",
+    image: "/public/assets/heavy.webp",
     description:
-      "Large-scale precision machining solutions for heavy industrial machinery and equipment.",
-    problem: "Precision alignment for large & heavy machinery",
+      "Large-scale machining solutions for heavy-duty industrial equipment requiring strength and accuracy.",
+    problem: "Machining large components with tight tolerances",
     solution:
-      "Heavy-duty machining with tight tolerances and robust materials",
-    uses: ["Shafts", "Rollers", "Machine Beds"],
+      "Heavy-duty CNC machines with reinforced tooling",
+    uses: [
+      "Machine Beds",
+      "Shafts",
+      "Rollers",
+    ],
   },
   {
-    title: "Railways",
-    image: "/assets/railways.jpg",
+    title: "Power Plants",
+    image: "/public/assets/powerplant.jpg",
     description:
-      "Durable machined components built to perform under high vibration and long service cycles in railway systems.",
-    problem: "High vibration & strict safety compliance",
+      "Precision-engineered components capable of withstanding high temperatures, vibration, and continuous operation in power plants.",
+    problem: "Thermal stress & continuous heavy load",
     solution:
-      "Robust CNC machined components with quality inspection",
-    uses: ["Axle Components", "Mounting Brackets", "Couplers"],
+      "High-strength machining with heat-resistant materials",
+    uses: [
+      "Turbine Base Frames",
+      "Boiler Structures",
+      "Heat Exchanger Parts",
+    ],
   },
   {
-    title: "Defense Support",
-    image: "/assets/defense.jpg",
+    title: "Packaging Machinery",
+    image: "/public/assets/packaging.jpg",
     description:
-      "Mission-critical components manufactured with zero tolerance for error and strict quality control.",
-    problem: "Zero error tolerance & reliability requirements",
+      "Accurate and repeatable machined parts ensuring speed, consistency, and reliability in packaging machinery.",
+    problem: "High-speed operation & wear resistance",
     solution:
-      "High-precision CNC machining with strict QA processes",
-    uses: ["Mounting Assemblies", "Structural Housings"],
+      "Precision CNC machining with durable finishes",
+    uses: [
+      "Guide Rails",
+      "Machine Frames",
+      "Drive Components",
+    ],
+  },
+  {
+    title: "Injection Molding Machinery",
+    image: "/public/assets/injection-molding.webp",
+    description:
+      "High-precision components engineered for pressure-intensive injection molding machines.",
+    problem: "High pressure & dimensional consistency",
+    solution:
+      "Precision machining with hardened materials",
+    uses: [
+      "Clamping Units",
+      "Plates",
+      "Support Structures",
+    ],
   },
 ];
+
 
 export default function Applications() {
   const [activeIndex, setActiveIndex] = useState(0);
