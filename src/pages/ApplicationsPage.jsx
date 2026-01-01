@@ -4,7 +4,7 @@ import "/src/pages/applications.css";
 const applicationsData = [
   {
     title: "Defense Support",
-    image: "/public/assets/defense.jpg",
+    image: "/assets/defense.jpg",
     description:
       "High-precision, mission-critical machined components manufactured under strict quality and confidentiality standards for defense applications.",
     problem: "Zero-tolerance precision & extreme reliability requirements",
@@ -18,7 +18,7 @@ const applicationsData = [
   },
   {
     title: "Aerospace",
-    image: "/public/assets/aerospace.jpg",
+    image: "/assets/aerospace.jpg",
     description:
       "Lightweight yet high-strength aerospace components engineered for performance, safety, and dimensional accuracy.",
     problem: "Tight tolerances & weight optimization",
@@ -32,7 +32,7 @@ const applicationsData = [
   },
   {
     title: "Infrastructure",
-    image: "/public/assets/infa.webp",
+    image: "/assets/infa.webp",
     description:
       "Robust fabricated and machined components designed to support heavy loads in large-scale infrastructure projects.",
     problem: "High load bearing & long-term durability",
@@ -46,7 +46,7 @@ const applicationsData = [
   },
   {
     title: "Chemical Industry",
-    image: "/public/assets/chemical.jpg",
+    image: "/assets/chemical.jpg",
     description:
       "Corrosion-resistant machined components for chemical processing plants operating in aggressive environments.",
     problem: "Corrosion, pressure & chemical exposure",
@@ -60,7 +60,7 @@ const applicationsData = [
   },
   {
     title: "Heavy Engineering",
-    image: "/public/assets/heavy.webp",
+    image: "/assets/heavy.webp",
     description:
       "Large-scale machining solutions for heavy-duty industrial equipment requiring strength and accuracy.",
     problem: "Machining large components with tight tolerances",
@@ -74,7 +74,7 @@ const applicationsData = [
   },
   {
     title: "Power Plants",
-    image: "/public/assets/powerplant.jpg",
+    image: "/assets/powerplant.jpg",
     description:
       "Precision-engineered components capable of withstanding high temperatures, vibration, and continuous operation in power plants.",
     problem: "Thermal stress & continuous heavy load",
@@ -88,7 +88,7 @@ const applicationsData = [
   },
   {
     title: "Packaging Machinery",
-    image: "/public/assets/packaging.jpg",
+    image: "/assets/packaging.jpg",
     description:
       "Accurate and repeatable machined parts ensuring speed, consistency, and reliability in packaging machinery.",
     problem: "High-speed operation & wear resistance",
@@ -102,7 +102,7 @@ const applicationsData = [
   },
   {
     title: "Injection Molding Machinery",
-    image: "/public/assets/injection-molding.webp",
+    image: "  /assets/injection-molding.webp",
     description:
       "High-precision components engineered for pressure-intensive injection molding machines.",
     problem: "High pressure & dimensional consistency",
