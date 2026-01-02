@@ -241,10 +241,7 @@ export default function Applications() {
         </p>
 
         <div className="regions">
-          <span>Gujarat</span>
-          <span>Maharashtra</span>
-          <span>Rajasthan</span>
-          <span>Madhya Pradesh</span>
+          <span>All Over World</span>
         </div>
       </section>
 

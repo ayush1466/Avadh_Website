@@ -125,7 +125,7 @@ const HomePage = ({ setCurrentPage }) => {
     { name: "HMC 400x400", image: "/assets/img6.jpeg" },
     { name: "HMC 630x630", image: "/assets/img4.jpeg" },
     { name: "HMC 300x300", image: "/assets/img5.jpeg" },
-    { name: "H-BORING", image: "/assets/img1.jpeg" },
+    { name: "H-BORING", image: "/assets/img1.jpg" },
     { name: "H-BORINGx2", image: "/assets/img2.jpeg" },
   ];
 
@@ -183,7 +183,11 @@ const HomePage = ({ setCurrentPage }) => {
         <div style={{ position: "relative", zIndex: 1 }}>
           {/* HERO SECTION */}
           <div
-            style={{ color: "white", padding: "8rem 2rem", textAlign: "center" }}
+            style={{
+              color: "white",
+              padding: "8rem 2rem",
+              textAlign: "center",
+            }}
           >
             <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
               <img
@@ -293,7 +297,11 @@ const HomePage = ({ setCurrentPage }) => {
 
           {/* FEATURES SECTION */}
           <div
-            style={{ maxWidth: "1280px", margin: "0 auto", padding: "4rem 1rem" }}
+            style={{
+              maxWidth: "1280px",
+              margin: "0 auto",
+              padding: "4rem 1rem",
+            }}
           >
             <div
               style={{
@@ -451,10 +459,12 @@ const HomePage = ({ setCurrentPage }) => {
                   }
                   style={{ ...buttonStyle, left: "1rem" }}
                   onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.5)")
+                    (e.target.style.backgroundColor =
+                      "rgba(255, 255, 255, 0.5)")
                   }
                   onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)")
+                    (e.target.style.backgroundColor =
+                      "rgba(255, 255, 255, 0.3)")
                   }
                 >
                   ‹
@@ -465,10 +475,12 @@ const HomePage = ({ setCurrentPage }) => {
                   }
                   style={{ ...buttonStyle, right: "1rem" }}
                   onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.5)")
+                    (e.target.style.backgroundColor =
+                      "rgba(255, 255, 255, 0.5)")
                   }
                   onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)")
+                    (e.target.style.backgroundColor =
+                      "rgba(255, 255, 255, 0.3)")
                   }
                 >
                   ›
