@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Target, Eye, Cog, CheckCircle, FileText, Code, Settings, Search, Package } from 'lucide-react';
+import SpecialtySectors from "/src/components/SpecialtySectors";
 
 const AboutPage = () => {
   const [counters, setCounters] = useState({ year: 2000 });
@@ -784,6 +785,8 @@ const AboutPage = () => {
         </div>
       </div>
 
+      {/* Specialty Sectors */}
+      <SpecialtySectors />
       {/* CTA Section */}
       <div style={{
         background: 'linear-gradient(to right, #1e3a8a, #1d4ed8)',

@@ -168,7 +168,7 @@ const HomePage = ({ setCurrentPage }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage: "url('/assets/newc.webp')",
+            backgroundImage: "url('/assets/newbg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -349,87 +349,131 @@ const HomePage = ({ setCurrentPage }) => {
             <div style={{ marginTop: "4rem" }}>
               <h2
                 style={{
-                  fontSize: "2.5rem",
-                  fontWeight: "bold",
+                  fontSize: "clamp(1.6rem, 4vw, 2.5rem)",
+                  fontWeight: "700",
                   textAlign: "center",
                   marginBottom: "3rem",
                   color: "#FFFFFF",
-                  textShadow: "3px 3px 8px rgba(0, 0, 0, 0.9)",
                   letterSpacing: "1px",
+                  textShadow: "0 10px 30px rgba(0,0,0,.6)",
                 }}
               >
                 Sectors We Serve
               </h2>
+
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: "500px",
+                  height: "clamp(360px, 55vh, 520px)",
                   overflow: "hidden",
-                  borderRadius: "1rem",
-                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                  borderRadius: "20px",
+                  boxShadow: "0 25px 60px rgba(0,0,0,.45)",
                 }}
               >
-                {sectors.map((sector, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      opacity: currentSlide === index ? 1 : 0,
-                      transition: "opacity 1s ease-in-out",
-                      backgroundImage: `url(${sector.image})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
+                {sectors.map((sector, index) => {
+                  const active = currentSlide === index;
+
+                  return (
                     <div
+                      key={index}
                       style={{
                         position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        backgroundColor: "rgba(0, 0, 0, 0.5)",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        color: "white",
+                        inset: 0,
+                        opacity: active ? 1 : 0,
+                        transition: "opacity 0.9s ease",
+                        overflow: "hidden",
                       }}
                     >
-                      <h3
+                      {/* Image */}
+                      <div
                         style={{
-                          fontSize: "3rem",
-                          fontWeight: "bold",
-                          marginBottom: "1rem",
-                          textShadow: "3px 3px 6px rgba(0, 0, 0, 0.8)",
+                          position: "absolute",
+                          inset: 0,
+                          backgroundImage: `url(${sector.image})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          transform: active ? "scale(1.07)" : "scale(1)",
+                          transition: "transform 6s ease",
+                        }}
+                      />
+
+                      {/* Overlay */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          background:
+                            window.innerWidth > 768
+                              ? "linear-gradient(90deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.4) 45%, rgba(0,0,0,.15) 100%)"
+                              : "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.2))",
+                        }}
+                      />
+
+                      {/* Text */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          left: window.innerWidth > 768 ? "6%" : "50%",
+                          bottom: window.innerWidth > 768 ? "auto" : "8%",
+                          top: window.innerWidth > 768 ? "50%" : "auto",
+                          transform:
+                            window.innerWidth > 768
+                              ? active
+                                ? "translateY(-50%)"
+                                : "translateY(-40%)"
+                              : "translateX(-50%)",
+                          opacity: active ? 1 : 0,
+                          transition: "all 0.8s ease",
+                          maxWidth: window.innerWidth > 768 ? "520px" : "90%",
+                          padding:
+                            window.innerWidth > 768 ? "2.5rem" : "1.4rem",
+                          borderRadius: "16px",
+                          backdropFilter:
+                            window.innerWidth > 768 ? "blur(8px)" : "blur(4px)",
+                          background:
+                            window.innerWidth > 768
+                              ? "rgba(255,255,255,.08)"
+                              : "rgba(0,0,0,.35)",
+                          color: "#fff",
+                          textAlign:
+                            window.innerWidth > 768 ? "left" : "center",
                         }}
                       >
-                        {sector.name}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "1.25rem",
-                          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
-                        }}
-                      >
-                        {sector.description}
-                      </p>
+                        <h3
+                          style={{
+                            fontSize: "clamp(1.5rem, 5vw, 3rem)",
+                            fontWeight: "800",
+                            marginBottom: "0.6rem",
+                            lineHeight: 1.2,
+                          }}
+                        >
+                          {sector.name}
+                        </h3>
+
+                        <p
+                          style={{
+                            fontSize: "clamp(0.95rem, 3.5vw, 1.15rem)",
+                            lineHeight: 1.6,
+                            color: "#E5E7EB",
+                          }}
+                        >
+                          {sector.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
+
+                {/* Indicators */}
                 <div
                   style={{
                     position: "absolute",
-                    bottom: "2rem",
+                    bottom: "14px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     display: "flex",
-                    gap: "0.75rem",
+                    gap: "10px",
                     zIndex: 10,
                   }}
                 >
@@ -438,275 +482,57 @@ const HomePage = ({ setCurrentPage }) => {
                       key={index}
                       onClick={() => setCurrentSlide(index)}
                       style={{
-                        width: "12px",
-                        height: "12px",
-                        borderRadius: "50%",
-                        border: "2px solid white",
-                        backgroundColor:
-                          currentSlide === index ? "white" : "transparent",
+                        width: currentSlide === index ? "26px" : "10px",
+                        height: "10px",
+                        borderRadius: "999px",
+                        border: "none",
+                        background:
+                          currentSlide === index
+                            ? "#FFFFFF"
+                            : "rgba(255,255,255,.45)",
+                        transition: "all .35s ease",
                         cursor: "pointer",
-                        transition: "all 0.3s",
                       }}
-                      aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
                 </div>
-                <button
-                  onClick={() =>
-                    setCurrentSlide(
-                      (prev) => (prev - 1 + sectors.length) % sectors.length
-                    )
-                  }
-                  style={{ ...buttonStyle, left: "1rem" }}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor =
-                      "rgba(255, 255, 255, 0.5)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor =
-                      "rgba(255, 255, 255, 0.3)")
-                  }
-                >
-                  ‹
-                </button>
-                <button
-                  onClick={() =>
-                    setCurrentSlide((prev) => (prev + 1) % sectors.length)
-                  }
-                  style={{ ...buttonStyle, right: "1rem" }}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor =
-                      "rgba(255, 255, 255, 0.5)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor =
-                      "rgba(255, 255, 255, 0.3)")
-                  }
-                >
-                  ›
-                </button>
+
+                {/* Arrows */}
+                {["‹", "›"].map((arrow, i) => (
+                  <button
+                    key={arrow}
+                    onClick={() =>
+                      setCurrentSlide((prev) =>
+                        i === 0
+                          ? (prev - 1 + sectors.length) % sectors.length
+                          : (prev + 1) % sectors.length
+                      )
+                    }
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      [i === 0 ? "left" : "right"]: "12px",
+                      transform: "translateY(-50%)",
+                      width: "44px",
+                      height: "44px",
+                      borderRadius: "50%",
+                      border: "none",
+                      background: "rgba(255,255,255,.18)",
+                      backdropFilter: "blur(6px)",
+                      color: "#fff",
+                      fontSize: "1.8rem",
+                      cursor: "pointer",
+                      zIndex: 10,
+                    }}
+                  >
+                    {arrow}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* OUR SPECIALTY IN SECTORS SECTION */}
-      <div
-        style={{
-          backgroundColor: "white",
-          padding: "4rem 2rem",
-          marginTop: "4rem",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "3rem",
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <p
-              style={{
-                color: "#FF2D2D",
-                fontSize: "0.875rem",
-                fontWeight: "600",
-                marginBottom: "0.5rem",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Our Facility
-            </p>
-            <h2
-              style={{
-                fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-                fontWeight: "bold",
-                marginBottom: "1.5rem",
-                color: "#000000",
-                lineHeight: "1.2",
-              }}
-            >
-              Where Quality Manufacturing Takes Shape
-            </h2>
-            <p
-              style={{
-                color: "#4b5563",
-                fontSize: "1rem",
-                lineHeight: "1.8",
-                marginBottom: "2rem",
-              }}
-            >
-              Avadh Enterprise is a technologically advanced and structurally
-              strong manufacturing space designed for high-precision work and
-              timely execution. Supported by modern CNC machinery, reliable
-              infrastructure, and an experienced technical team, we ensure
-              superior quality and efficiency in every sector we cater to.
-            </p>
-            <button
-              onClick={() => setCurrentPage("about")}
-              style={{
-                backgroundColor: "#FF2D2D",
-                color: "white",
-                padding: "0.75rem 1.5rem",
-                fontSize: "1rem",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontWeight: "600",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-              }}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#D51F1F")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#FF2D2D")}
-            >
-              Read More <ChevronRight size={20} />
-            </button>
-          </div>
-
-          <div
-            style={{ position: "relative", width: "100%", overflow: "hidden" }}
-          >
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                overflowX: "auto",
-                scrollBehavior: "smooth",
-                paddingBottom: "1rem",
-                paddingLeft: "0.5rem",
-                paddingRight: "0.5rem",
-                scrollbarWidth: "thin",
-                scrollbarColor: "#FF2D2D #f1f1f1",
-                WebkitOverflowScrolling: "touch",
-              }}
-              className="scroll-container"
-            >
-              {specialtySectors.map((sector, i) => (
-                <div
-                  key={i}
-                  className="sector-card"
-                  style={{
-                    position: "relative",
-                    minWidth: "calc(85vw - 2rem)",
-                    maxWidth: "280px",
-                    height: "350px",
-                    borderRadius: "1rem",
-                    overflow: "hidden",
-                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                    cursor: "pointer",
-                    transition: "transform 0.3s",
-                    flexShrink: 0,
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.05)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
-                >
-                  <img
-                    src={sector.image}
-                    alt={sector.name}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                    loading="lazy"
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      padding: "1.5rem",
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        color: "white",
-                        fontSize: "1.25rem",
-                        fontWeight: "bold",
-                        textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-                      }}
-                    >
-                      {sector.name}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p
-              style={{
-                textAlign: "center",
-                color: "#9ca3af",
-                fontSize: "0.875rem",
-                marginTop: "1rem",
-                fontStyle: "italic",
-              }}
-            >
-              ← Scroll to see more →
-            </p>
-            <style>{`
-              .scroll-container {
-                -webkit-overflow-scrolling: touch;
-                scroll-snap-type: x mandatory;
-              }
-              
-              .sector-card {
-                scroll-snap-align: start;
-              }
-              
-              /* Mobile optimization */
-              @media (max-width: 768px) {
-                .scroll-container {
-                  gap: 0.75rem !important;
-                  padding-left: 1rem !important;
-                  padding-right: 1rem !important;
-                }
-                
-                .sector-card {
-                  min-width: calc(80vw) !important;
-                  max-width: calc(80vw) !important;
-                  height: 300px !important;
-                }
-              }
-              
-              @media (min-width: 769px) {
-                .sector-card {
-                  min-width: 280px !important;
-                  max-width: 280px !important;
-                }
-              }
-              
-              .scroll-container::-webkit-scrollbar { 
-                height: 8px; 
-              }
-              .scroll-container::-webkit-scrollbar-track { 
-                background: #f1f1f1; 
-                border-radius: 10px; 
-              }
-              .scroll-container::-webkit-scrollbar-thumb { 
-                background: #FF2D2D; 
-                border-radius: 10px; 
-              }
-              .scroll-container::-webkit-scrollbar-thumb:hover { 
-                background: #D51F1F; 
-              }
-            `}</style>
-          </div>
-        </div>
-      </div>
+      </div>     
     </>
   );
 };

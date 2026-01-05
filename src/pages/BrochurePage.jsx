@@ -1,233 +1,192 @@
-import React from 'react';
-import { FileText, ChevronRight, Download } from 'lucide-react';
+import React from "react";
+import { FileText, Download, Check } from "lucide-react";
 
 const BrochurePage = () => {
-  // Function to handle PDF download
+  const isMobile = window.innerWidth < 768;
+
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/company-brochure.pdf'; // Your PDF file name in public folder
-    link.download = 'Precision-CNC-Works-Brochure.pdf'; // Name when downloaded
+    const link = document.createElement("a");
+    link.href = "/company-brochure.pdf";
+    link.download = "Precision-CNC-Works-Brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div style={{
-      maxWidth: '1280px',
-      margin: '0 auto',
-      padding: '4rem 1rem'
-    }}>
-      <h1 style={{
-        fontSize: '2.25rem',
-        fontWeight: 'bold',
-        marginBottom: '2rem'
-      }}>
-        Company Brochure
-      </h1>
-      
-      <div style={{
-        background: 'linear-gradient(to right, #ef4444, #b91c1c)',  // 🔥 Red Gradient
-        color: 'white',
-        borderRadius: '0.5rem',
-        padding: '3rem',
-        marginBottom: '2rem',
-        textAlign: 'center'
-      }}>
-        <FileText size={96} style={{ margin: '0 auto 1.5rem', display: 'block' }} />
-        <h2 style={{
-          fontSize: '1.875rem',
-          fontWeight: 'bold',
-          marginBottom: '1rem'
-        }}>
-          Download Our Brochure
-        </h2>
-        <p style={{
-          fontSize: '1.25rem',
-          marginBottom: '2rem'
-        }}>
-          Get detailed information about our services, capabilities, and quality standards
-        </p>
-        
-        {/* Download Button with Icon */}
-        <button 
-          onClick={handleDownload}
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(180deg,#f1f5f9,#e2e8f0)",
+        padding: isMobile ? "3rem 1rem" : "5rem 1rem",
+        fontFamily: "Inter, system-ui, sans-serif",
+      }}
+    >
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        {/* Header */}
+        <h1
           style={{
-            backgroundColor: 'white',
-            color: '#b91c1c',                         // 🔥 Red Text
-            padding: '0.75rem 2rem',
-            borderRadius: '0.5rem',
-            fontWeight: '600',
-            border: 'none',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem'
+            fontSize: isMobile ? "2rem" : "2.75rem",
+            fontWeight: 700,
+            textAlign: "center",
+            marginBottom: "0.75rem",
+            color: "#1e3a8a",
           }}
-          onMouseEnter={(e) => e.target.style.backgroundColor = '#fee2e2'} // 🔥 Light Red Hover
-          onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
         >
-          <Download size={20} />
-          Download PDF Brochure
-        </button>
-      </div>
+          Company Brochure
+        </h1>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '2rem'
-      }}>
-        <div style={{
-          backgroundColor: 'white',
-          borderRadius: '0.5rem',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-          padding: '1.5rem'
-        }}>
-          <h3 style={{
-            fontSize: '1.25rem',
-            fontWeight: 'bold',
-            marginBottom: '1rem'
-          }}>
-            What's Inside
-          </h3>
-          <ul style={{
-            listStyle: 'none',
-            padding: 0
-          }}>
-            <li style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              marginBottom: '0.75rem'
-            }}>
-              <ChevronRight color="#ef4444" style={{  // 🔥 Red Icons
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <span>Complete service catalog with technical specifications</span>
-            </li>
+        <p
+          style={{
+            textAlign: "center",
+            color: "#475569",
+            maxWidth: "600px",
+            margin: "0 auto 2.5rem",
+            fontSize: isMobile ? "1rem" : "1.1rem",
+          }}
+        >
+          A complete technical overview of our machining capabilities,
+          materials, quality standards, and manufacturing excellence.
+        </p>
 
-            <li style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              marginBottom: '0.75rem'
-            }}>
-              <ChevronRight color="#ef4444" style={{
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <span>Detailed machine capabilities and tolerances</span>
-            </li>
+        {/* Main Card */}
+        <div
+          style={{
+            background: "white",
+            border: "1px solid #e5e7eb",
+            borderRadius: "1rem",
+            padding: isMobile ? "2rem 1.5rem" : "3rem",
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr",
+            gap: isMobile ? "2rem" : "3rem",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+          }}
+        >
+          {/* Left */}
+          <div>
+            <FileText size={isMobile ? 56 : 80} color="#2563eb" />
 
-            <li style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              marginBottom: '0.75rem'
-            }}>
-              <ChevronRight color="#ef4444" style={{
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <span>Case studies and success stories</span>
-            </li>
+            <h2
+              style={{
+                fontSize: isMobile ? "1.5rem" : "1.9rem",
+                fontWeight: 600,
+                marginTop: "1.25rem",
+                marginBottom: "1rem",
+                color: "#1e3a8a",
+              }}
+            >
+              Precision CNC Manufacturing
+            </h2>
 
-            <li style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              marginBottom: '0.75rem'
-            }}>
-              <ChevronRight color="#ef4444" style={{
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <span>Quality certifications and standards</span>
-            </li>
+            <p style={{ color: "#475569", lineHeight: 1.6 }}>
+              This brochure contains detailed technical information including
+              machining tolerances, material capabilities, inspection processes,
+              certifications, and real-world production examples.
+            </p>
 
-            <li style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              marginBottom: '0.75rem'
-            }}>
-              <ChevronRight color="#ef4444" style={{
-                marginTop: '0.25rem', 
-                marginRight: '0.5rem',
-                flexShrink: 0 
-              }} />
-              <span>Material options and finishing services</span>
-            </li>
-          </ul>
+            <button
+              onClick={handleDownload}
+              style={{
+                marginTop: "2rem",
+                width: isMobile ? "100%" : "auto",
+                background:
+                  "linear-gradient(135deg,#2563eb,#1e40af)",
+                color: "white",
+                padding: "0.9rem 2.5rem",
+                borderRadius: "0.75rem",
+                fontSize: "1rem",
+                fontWeight: 600,
+                border: "none",
+                cursor: "pointer",
+                display: "inline-flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "0.6rem",
+                boxShadow: "0 12px 30px rgba(37,99,235,0.35)",
+              }}
+            >
+              <Download size={20} />
+              Download PDF Brochure
+            </button>
+          </div>
+
+          {/* Right */}
+          <div>
+            <h3
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: 600,
+                marginBottom: "1.25rem",
+                color: "#1e3a8a",
+              }}
+            >
+              What you’ll find inside
+            </h3>
+
+            {[
+              "Machine capabilities & tolerances",
+              "Materials & surface finishes",
+              "Quality control & certifications",
+              "Industries served & applications",
+              "Production workflow & capacity",
+            ].map((item) => (
+              <div
+                key={item}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.6rem",
+                  marginBottom: "0.85rem",
+                  color: "#475569",
+                  fontWeight: 500,
+                }}
+              >
+                <Check size={18} color="#2563eb" />
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div style={{
-          backgroundColor: 'white',
-          borderRadius: '0.5rem',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-          padding: '1.5rem'
-        }}>
-          <h3 style={{
-            fontSize: '1.25rem',
-            fontWeight: 'bold',
-            marginBottom: '1rem'
-          }}>
-            Technical Specifications
-          </h3>
-
-          <div style={{ marginBottom: '1rem' }}>
-            <h4 style={{
-              fontWeight: '600',
-              color: '#374151',
-              marginBottom: '0.25rem'
-            }}>
-              Machining Capacity
-            </h4>
-            <p style={{ color: '#4b5563' }}>
-              Up to 2000mm x 1000mm x 800mm
-            </p>
-          </div>
-
-          <div style={{ marginBottom: '1rem' }}>
-            <h4 style={{
-              fontWeight: '600',
-              color: '#374151',
-              marginBottom: '0.25rem'
-            }}>
-              Tolerance
-            </h4>
-            <p style={{ color: '#4b5563' }}>
-              Standard: ±0.01mm, Precision: ±0.001mm
-            </p>
-          </div>
-
-          <div style={{ marginBottom: '1rem' }}>
-            <h4 style={{
-              fontWeight: '600',
-              color: '#374151',
-              marginBottom: '0.25rem'
-            }}>
-              Materials
-            </h4>
-            <p style={{ color: '#4b5563' }}>
-              Aluminum, Steel, Stainless Steel, Titanium, Brass, Plastics
-            </p>
-          </div>
-
-          <div>
-            <h4 style={{
-              fontWeight: '600',
-              color: '#374151',
-              marginBottom: '0.25rem'
-            }}>
-              Surface Finish
-            </h4>
-            <p style={{ color: '#4b5563' }}>
-              Ra 0.4μm to 3.2μm
-            </p>
-          </div>
-
+        {/* Specs */}
+        <div
+          style={{
+            marginTop: "3rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "1.25rem",
+          }}
+        >
+          {[
+            ["Tolerance", "±0.001 mm"],
+            ["Max Size", "2000 × 1000 × 800 mm"],
+            ["Materials", "Metals & Engineering Plastics"],
+            ["Surface Finish", "Ra 0.4 μm – 3.2 μm"],
+          ].map(([title, value]) => (
+            <div
+              key={title}
+              style={{
+                background: "white",
+                border: "1px solid #e5e7eb",
+                borderRadius: "0.75rem",
+                padding: "1.25rem",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
+              }}
+            >
+              <p style={{ color: "#64748b", fontSize: "0.85rem" }}>
+                {title}
+              </p>
+              <p
+                style={{
+                  fontSize: "1.1rem",
+                  fontWeight: 600,
+                  color: "#1e3a8a",
+                }}
+              >
+                {value}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

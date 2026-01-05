@@ -232,17 +232,9 @@ export default function Applications() {
         </ul>
       </section>
 
-      {/* ================= REGIONS ================= */}
       <section className="regions-section">
-        <h2>Where Our Applications Operate</h2>
-        <p>
-          Our engineered components are actively operating across major
-          industrial regions of India.
-        </p>
+        <h2>Our engineered components are actively deployed across major industrial regions around the world.</h2>
 
-        <div className="regions">
-          <span>All Over World</span>
-        </div>
       </section>
 
     </>
