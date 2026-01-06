@@ -48,7 +48,6 @@ const ContactPage = () => {
           Get in touch with our engineering team for quotations, technical
           discussions, or production support.
         </p>
-
         {/* Top Grid */}
         <div
           style={{

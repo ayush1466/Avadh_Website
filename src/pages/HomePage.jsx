@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Wrench, Cog, Box, ChevronRight } from "lucide-react";
+import ClientsSlider from "/src/components/ClientsSlider";
 
 const HomePage = ({ setCurrentPage }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -117,17 +118,6 @@ const HomePage = ({ setCurrentPage }) => {
     },
   ];
 
-  // Specialty sectors for scrollable section
-  const specialtySectors = [
-    { name: "INFRASTRUCTURE", image: "/assets/img8.jpeg" },
-    { name: "VMC 3000x2000", image: "/assets/img3.jpeg" },
-    { name: "VMC", image: "/assets/img7.jpeg" },
-    { name: "HMC 400x400", image: "/assets/img6.jpeg" },
-    { name: "HMC 630x630", image: "/assets/img4.jpeg" },
-    { name: "HMC 300x300", image: "/assets/img5.jpeg" },
-    { name: "H-BORING", image: "/assets/img1.jpg" },
-    { name: "H-BORINGx2", image: "/assets/img2.jpeg" },
-  ];
 
   // Auto-slide effect
   useEffect(() => {
@@ -528,11 +518,16 @@ const HomePage = ({ setCurrentPage }) => {
                     {arrow}
                   </button>
                 ))}
+              
               </div>
             </div>
+            
+            {/* CLIENTS SLIDER */}
+            <ClientsSlider />
+            
           </div>
         </div>
-      </div>     
+      </div>
     </>
   );
 };
