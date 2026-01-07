@@ -6,8 +6,8 @@ const BrochurePage = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/company-brochure.pdf";
-    link.download = "Precision-CNC-Works-Brochure.pdf";
+    link.href = "/Avadh-Brochure.pdf";
+    link.download = "Avadh-Brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

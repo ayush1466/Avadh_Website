@@ -8,6 +8,7 @@ const ClientsSlider = () => {
     { name: "KHS Machinery Limited", logo: "/assets/clients/KHS.webp" },
     { name: "Parle Tableting Technologies Pvt. Ltd.", logo: "/assets/clients/parle.png" },    { name: "L&T", logo: "/assets/clients/lt.png" },
     { name: "Hydco Engineering", logo: "/assets/clients/hydco.png" },
+    { name: "Ingersoll rand", logo: "/assets/clients/ingersoll-rand.webp" },
   ];
 
   return (

@@ -239,17 +239,20 @@ const HomePage = ({ setCurrentPage }) => {
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
             }}
           >
-            <h1
-              style={{
-                fontSize: "3rem",
-                fontWeight: "bold",
-                color: "#0539e3ff",
-                marginBottom: "1.5rem",
-                textAlign: "center",
-              }}
-            >
-              SINCE 2006
-            </h1>
+          <h1
+  style={{
+    fontSize: "3.2rem",
+    fontWeight: "600",
+    letterSpacing: "0.25em",
+    color: "#122f6cff",
+    marginBottom: "1.5rem",
+    textAlign: "center",
+    fontFamily: "'Oswald', 'Montserrat', sans-serif",
+  }}
+>
+  SINCE 2006
+</h1>
+
             {[
               "We established as a part of manufacturing and machining service industry in 2006.",
               "As the nation grew, our establishments along with our facilities, skills, equipment, machining capabilities, quality control and many more also grew. Mr. Kaushik Patel, a brilliant mindset in growing business and accounting along with Mr. Alpesh Patel, a genius mind full of machinery and mechanical mindset started this industry in Ahmedabad with just one machine.",

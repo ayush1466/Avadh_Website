@@ -5,7 +5,7 @@ const ContactPage = () => {
   const isMobile = window.innerWidth < 768;
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "919876543210";
+    const phoneNumber = "919825995010";
     const message =
       "Hello, I would like to inquire about your CNC machining services.";
     window.open(
@@ -84,21 +84,20 @@ const ContactPage = () => {
                 title: "Address",
                 value: (
                   <>
-                    Plot No. 123, Industrial Area Phase-2
-                    <br />
-                    Ahmedabad, Gujarat 382330, India
+                    B-230, Swarnim Ind. Park-2, Bakrol-Dhamatvan road,
+                    Bakrol-Bujrang, Ahmedabad, Gujarat 382430
                   </>
                 ),
               },
               {
                 icon: <Phone color="#2563eb" />,
                 title: "Phone",
-                value: "+91 98765 43210",
+                value: "+91 9825995010",
               },
               {
                 icon: <Mail color="#2563eb" />,
                 title: "Email",
-                value: "info@precisioncncworks.com",
+                value: "avadheng@gmail.com",
               },
             ].map((item, index) => (
               <div
@@ -167,9 +166,8 @@ const ContactPage = () => {
             </h2>
 
             {[
-              ["Monday – Friday", "9:00 AM – 6:00 PM"],
-              ["Saturday", "9:00 AM – 2:00 PM"],
-              ["Sunday", "Closed"],
+              ["Monday – Sunday", "9:00 AM – 6:00 PM"],
+              ["Tuesday", "Closed"],
             ].map(([day, time]) => (
               <div
                 key={day}
@@ -197,8 +195,8 @@ const ContactPage = () => {
                 color: "#475569",
               }}
             >
-              We typically respond within 24 business hours.  
-              For urgent requirements, please call directly.
+              We typically respond within 24 business hours. For urgent
+              requirements, please call directly.
             </div>
           </div>
         </div>
@@ -233,7 +231,7 @@ const ContactPage = () => {
             }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74843013582!2d72.41493075!3d23.0201819"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.376657367868!2d72.74105569999999!3d22.973172899999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e639713b81fd7%3A0x1c7a560476d8b9d0!2sAvadh%20Enterprise!5e0!3m2!1sen!2sin!4v1767774849701!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
