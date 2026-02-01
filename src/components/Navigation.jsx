@@ -24,7 +24,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             </div>
             <div className="brand-text">
               <h1>AVADH ENTERPRISE</h1>
-              <span>ENGINEERING EXCELLENCE</span>
+              <span>ALL MACHINING SOLUTIONS UNDER ONE ROOF</span>
             </div>
           </div>
 

@@ -202,15 +202,15 @@ export default function Applications() {
 
         <div className="machine-grid">
           <div className="machine-card">
-            <h4>CNC Lathe</h4>
+            <h4>4-Axis Rotary table</h4>
             <p>Precision shafts, flanges & cylindrical components</p>
           </div>
           <div className="machine-card">
-            <h4>VMC</h4>
+            <h4>CNC</h4>
             <p>High-accuracy plates, housings & profiles</p>
           </div>
           <div className="machine-card">
-            <h4>Heavy Fabrication</h4>
+            <h4>CMM</h4>
             <p>Structural frames & industrial supports</p>
           </div>
           <div className="machine-card">

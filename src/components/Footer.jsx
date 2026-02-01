@@ -13,7 +13,6 @@ const Footer = ({ setCurrentPage }) => {
   const socialLinks = [
     { name: 'Email', icon: Mail, color: '#60a5fa', action: () => window.location.href = 'mailto:avadheng@gmail.com' },
     { name: 'LinkedIn', icon: Linkedin, color: '#0A66C2', action: () => window.open('https://www.linkedin.com/company/avadh-enterprise2011/', '_blank') },
-    { name: 'Facebook', icon: Facebook, color: '#1877F2', action: () => window.open('https://www.facebook.com/yourcompany', '_blank') },
     { name: 'Instagram', icon: Instagram, color: '#E1306C', action: () => window.open('https://www.instagram.com/avadheng/?igsh=MTc2OWk0bWl2d2dpOA%3D%3D#', '_blank') }
   ];
 
@@ -26,9 +25,10 @@ const Footer = ({ setCurrentPage }) => {
   ];
 
   const serviceLinks = [
-    { id: 'services', label: 'CNC Machining Job Work' },
-    { id: 'services', label: 'Mold for Block Making Machine' },
-    { id: 'services', label: 'General Services' }
+    { id: 'service-1', label: 'CNC Machining Job Work' },
+    { id: 'service-2', label: 'Mold for Block Making Machine' },
+    { id: 'service-3', label: 'Heavy Engineering' },
+    {id: 'service-4', label: '4th Axis 400 Dia' }
   ];
 
   const handleLinkClick = (pageId) => {

@@ -8,69 +8,49 @@ const HomePage = ({ setCurrentPage }) => {
   // Sectors data with images
   const sectors = [
     {
-      name: "POWER PLANT",
-      image: "assets/powerplant.jpg",
-      description: "Precision components for power generation",
+      image: "assets/comps/comp_1.webp",
     },
     {
-      name: "SUGAR MILL",
-      image: "assets/sugarmill.jpg",
-      description: "Specialized parts for sugar processing",
+      image: "assets/comps/comp_2.webp",
     },
     {
-      name: "RUBBER",
-      image: "/assets/rubber.jpg",
-      description: "Quality components for rubber industry",
+      image: "assets/comps/comp_3.webp",
     },
     {
-      name: "DEFENSE",
-      image: "/assets/defense.jpg",
-      description: "Critical parts for defense applications",
+      image: "assets/comps/comp_4.webp",
     },
     {
-      name: "AEROSPACE",
-      image: "/assets/aerospace.jpg",
-      description: "High-precision aerospace components",
+      image: "/assets/comps/comp_5.webp",
     },
     {
-      name: "CHEMICAL",
-      image: "/assets/chemical.jpg",
-      description: "Corrosion-resistant components",
+      image: "/assets/comps/comp_6.webp",
     },
     {
-      name: "AUTOMOTIVE",
-      image: "/assets/automotive.jpg",
-      description: "Precision parts for automotive industry",
+      image: "/assets/comps/comp_7.webp",
     },
     {
-      name: "OIL & GAS",
-      image: "/assets/oilgas.jpg",
-      description: "Heavy-duty components for oil & gas",
+      image: "/assets/comps/comp_8.webp",
     },
     {
-      name: "PLASTIC MACHINERY",
-      image: "/assets/plastic.jpg",
-      description: "Machined parts for plastic processing",
+      image: "/assets/comps/comp_9.webp",
     },
     {
-      name: "BLOCK MAKING MACHINERY",
-      image: "/assets/blockmaking.jpg",
-      description: "Durable parts for block making equipment",
+      image: "/assets/comps/comp_10.webp",
     },
     {
-      name: "STEEL",
-      image: "/assets/steel.jpg",
-      description: "High-strength components for steel industry",
+      image: "/assets/comps/comp_11.webp",
     },
-    {
-      name: "SPACE",
-      image: "/assets/space.jpg",
-      description: "Specialized parts for space missions",
+     {
+      image: "/assets/comps/comp_12.jpeg",
     },
-    {
-      name: "PACKAGING MACHINERY",
-      image: "/assets/packaging.jpg",
-      description: "Precision components for packaging systems",
+     {
+      image: "/assets/comps/comp_13.jpeg",
+    },
+     {
+      image: "/assets/comps/comp_14.jpeg",
+    },
+     {
+      image: "/assets/comps/comp_15.jpeg",
     },
   ];
 
@@ -117,7 +97,6 @@ const HomePage = ({ setCurrentPage }) => {
       text: "our skilled and work-enthusiast team of engineers help to understand customers need and design.",
     },
   ];
-
 
   // Auto-slide effect
   useEffect(() => {
@@ -196,7 +175,7 @@ const HomePage = ({ setCurrentPage }) => {
                   fontWeight: "500",
                 }}
               >
-                ALL MACHINING SOLUTIONS UNDER ONE ROOF
+                ENGINEERING EXCELLENCE SINCE 2006
               </p>
               <button
                 onClick={() => setCurrentPage("contact")}
@@ -239,19 +218,19 @@ const HomePage = ({ setCurrentPage }) => {
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
             }}
           >
-          <h1
-  style={{
-    fontSize: "3.2rem",
-    fontWeight: "600",
-    letterSpacing: "0.25em",
-    color: "#122f6cff",
-    marginBottom: "1.5rem",
-    textAlign: "center",
-    fontFamily: "'Oswald', 'Montserrat', sans-serif",
-  }}
->
-  SINCE 2006
-</h1>
+            <h1
+              style={{
+                fontSize: "3.2rem",
+                fontWeight: "600",
+                letterSpacing: "0.25em",
+                color: "#122f6cff",
+                marginBottom: "1.5rem",
+                textAlign: "center",
+                fontFamily: "'Oswald', 'Montserrat', sans-serif",
+              }}
+            >
+              SINCE 2006
+            </h1>
 
             {[
               "We established as a part of manufacturing and machining service industry in 2006.",
@@ -338,7 +317,7 @@ const HomePage = ({ setCurrentPage }) => {
               ))}
             </div>
 
-            {/* SECTORS WE SERVE SLIDER */}
+            {/* Our engineered components */}
             <div style={{ marginTop: "4rem" }}>
               <h2
                 style={{
@@ -351,7 +330,7 @@ const HomePage = ({ setCurrentPage }) => {
                   textShadow: "0 10px 30px rgba(0,0,0,.6)",
                 }}
               >
-                Sectors We Serve
+                Our Engineered Components
               </h2>
 
               <div
@@ -378,16 +357,16 @@ const HomePage = ({ setCurrentPage }) => {
                         overflow: "hidden",
                       }}
                     >
+                    
                       {/* Image */}
                       <div
                         style={{
                           position: "absolute",
                           inset: 0,
                           backgroundImage: `url(${sector.image})`,
-                          backgroundSize: "cover",
+                          backgroundSize: "contain",
                           backgroundPosition: "center",
-                          transform: active ? "scale(1.07)" : "scale(1)",
-                          transition: "transform 6s ease",
+                          backgroundRepeat: "no-repeat",
                         }}
                       />
 
@@ -402,58 +381,6 @@ const HomePage = ({ setCurrentPage }) => {
                               : "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.2))",
                         }}
                       />
-
-                      {/* Text */}
-                      <div
-                        style={{
-                          position: "absolute",
-                          left: window.innerWidth > 768 ? "6%" : "50%",
-                          bottom: window.innerWidth > 768 ? "auto" : "8%",
-                          top: window.innerWidth > 768 ? "50%" : "auto",
-                          transform:
-                            window.innerWidth > 768
-                              ? active
-                                ? "translateY(-50%)"
-                                : "translateY(-40%)"
-                              : "translateX(-50%)",
-                          opacity: active ? 1 : 0,
-                          transition: "all 0.8s ease",
-                          maxWidth: window.innerWidth > 768 ? "520px" : "90%",
-                          padding:
-                            window.innerWidth > 768 ? "2.5rem" : "1.4rem",
-                          borderRadius: "16px",
-                          backdropFilter:
-                            window.innerWidth > 768 ? "blur(8px)" : "blur(4px)",
-                          background:
-                            window.innerWidth > 768
-                              ? "rgba(255,255,255,.08)"
-                              : "rgba(0,0,0,.35)",
-                          color: "#fff",
-                          textAlign:
-                            window.innerWidth > 768 ? "left" : "center",
-                        }}
-                      >
-                        <h3
-                          style={{
-                            fontSize: "clamp(1.5rem, 5vw, 3rem)",
-                            fontWeight: "800",
-                            marginBottom: "0.6rem",
-                            lineHeight: 1.2,
-                          }}
-                        >
-                          {sector.name}
-                        </h3>
-
-                        <p
-                          style={{
-                            fontSize: "clamp(0.95rem, 3.5vw, 1.15rem)",
-                            lineHeight: 1.6,
-                            color: "#E5E7EB",
-                          }}
-                        >
-                          {sector.description}
-                        </p>
-                      </div>
                     </div>
                   );
                 })}
@@ -498,7 +425,7 @@ const HomePage = ({ setCurrentPage }) => {
                       setCurrentSlide((prev) =>
                         i === 0
                           ? (prev - 1 + sectors.length) % sectors.length
-                          : (prev + 1) % sectors.length
+                          : (prev + 1) % sectors.length,
                       )
                     }
                     style={{
@@ -521,13 +448,11 @@ const HomePage = ({ setCurrentPage }) => {
                     {arrow}
                   </button>
                 ))}
-              
               </div>
             </div>
-            
+
             {/* CLIENTS SLIDER */}
             <ClientsSlider />
-            
           </div>
         </div>
       </div>

@@ -89,7 +89,7 @@ const ClientsSlider = () => {
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
-                  transition: "transform 0.3s ease",
+                  transition: "transform 0.35s ease",
                 }}
               />
             </div>
