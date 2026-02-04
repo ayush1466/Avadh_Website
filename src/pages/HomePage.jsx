@@ -175,7 +175,7 @@ const HomePage = ({ setCurrentPage }) => {
                   fontWeight: "500",
                 }}
               >
-                ENGINEERING EXCELLENCE SINCE 2006
+                ENGINEERING EXCELLENCE
               </p>
               <button
                 onClick={() => setCurrentPage("contact")}

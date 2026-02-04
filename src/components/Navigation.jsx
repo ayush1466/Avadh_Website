@@ -67,7 +67,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
       <img src="/logo.jpg" alt="Avadh Enterprise Logo" />
       <div>
         <h2>AVADH ENTERPRISE</h2>
-        <span>ENGINEERING EXCELLENCE</span>
+        <span>ALL MACHINING SOLUTIONS UNDER ONE ROOF</span>
       </div>
     </div>
 
