@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "/src/pages/applications.css";
+
+
 
 const applicationsData = [
   {
@@ -114,12 +116,20 @@ const applicationsData = [
       "Support Structures",
     ],
   },
+  
 ];
 
 
 export default function Applications() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeApp = applicationsData[activeIndex];
+  useEffect(() => {
+  applicationsData.forEach((app) => {
+    const img = new Image();
+    img.src = app.image;
+  });
+}, []);
+
 
   return (
     <>
