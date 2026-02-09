@@ -40,16 +40,16 @@ const HomePage = ({ setCurrentPage }) => {
     {
       image: "/assets/comps/comp_11.webp",
     },
-     {
+    {
       image: "/assets/comps/comp_12.jpeg",
     },
-     {
+    {
       image: "/assets/comps/comp_13.jpeg",
     },
-     {
+    {
       image: "/assets/comps/comp_14.jpeg",
     },
-     {
+    {
       image: "/assets/comps/comp_15.jpeg",
     },
   ];
@@ -340,7 +340,8 @@ const HomePage = ({ setCurrentPage }) => {
                   height: "clamp(360px, 55vh, 520px)",
                   overflow: "hidden",
                   borderRadius: "20px",
-                  boxShadow: "0 25px 60px rgba(0,0,0,.45)",
+                  backgroundColor: "#ffffff", // ✅ WHITE BACKGROUND
+                  boxShadow: "0 20px 40px rgba(0,0,0,.25)",
                 }}
               >
                 {sectors.map((sector, index) => {
@@ -357,7 +358,6 @@ const HomePage = ({ setCurrentPage }) => {
                         overflow: "hidden",
                       }}
                     >
-                    
                       {/* Image */}
                       <div
                         style={{
@@ -437,9 +437,9 @@ const HomePage = ({ setCurrentPage }) => {
                       height: "44px",
                       borderRadius: "50%",
                       border: "none",
-                      background: "rgba(255,255,255,.18)",
+                      background: "rgb(255, 255, 255)",
                       backdropFilter: "blur(6px)",
-                      color: "#fff",
+                      color: "#000000",
                       fontSize: "1.8rem",
                       cursor: "pointer",
                       zIndex: 10,

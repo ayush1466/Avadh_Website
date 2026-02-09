@@ -53,6 +53,32 @@ const ServicesPage = () => {
       image: "/assets/inspection.jpeg",
       accent: "#9333ea",
     },
+    {
+      title: "Heavy Engineering",
+      description:
+        "We offer Heavy Engineering solutions for large and complex components, including heavy machining, fabrication, and structural assemblies. Our capabilities support demanding industrial and infrastructure applications.",
+      features: [
+        "Heavy Machining",
+        "Fabrication & Structural Assemblies",
+        "Industrial & Infrastructure Applications",
+        "Customized Heavy Components",
+      ],
+      image: "/assets/Heavyeng.webp",
+      accent: "#2563eb",
+    },
+    {
+      title: "4th axis 400 Dia",
+      description:
+        "With a 4th Axis 400 Dia Rotary Table, we offer accurate indexing and continuous rotary machining for complex geometries. This capability enhances productivity, improves repeatability, and delivers superior dimensional accuracy across multiple operations.",
+      features: [
+        "Heavy Machining",
+        "Fabrication & Structural Assemblies",
+        "Industrial & Infrastructure Applications",
+        "Customized Heavy Components",
+      ],
+      image: "/assets/4-axis.webp",
+      accent: "#2563eb",
+    }
   ];
 
   // ===== Quote Actions =====

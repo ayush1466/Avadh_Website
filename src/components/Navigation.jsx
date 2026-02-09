@@ -130,7 +130,6 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 .brand-logo {
   width: 52px;
   height: 52px;
-  background: #ffffff;
   border-radius: 14px;
   display: grid;
   place-items: center;

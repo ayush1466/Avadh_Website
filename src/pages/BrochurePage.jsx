@@ -159,7 +159,7 @@ const BrochurePage = () => {
         >
           {[
             ["Tolerance", "±0.001 mm"],
-            ["Max Size", "2000 × 1000 × 800 mm"],
+            ["Max Size", "3000 × 2000 × 1000 mm"],
             ["Materials", "Metals & Engineering Plastics"],
             ["Surface Finish", "Ra 0.4 μm – 3.2 μm"],
           ].map(([title, value]) => (
