@@ -49,10 +49,7 @@ const componentSlides = [
   { image: "/assets/comps/comp_9.webp" },
   { image: "/assets/comps/comp_10.webp" },
   { image: "/assets/comps/comp_11.webp" },
-  { image: "/assets/comps/comp_12.jpeg" },
-  { image: "/assets/comps/comp_13.jpeg" },
-  { image: "/assets/comps/comp_14.jpeg" },
-  { image: "/assets/comps/comp_15.jpeg" },
+  { image: "/assets/comps/comp_12.webp" },
 ];
 
 const HomePage = ({ setCurrentPage }) => {
