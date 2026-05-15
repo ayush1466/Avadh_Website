@@ -93,7 +93,7 @@ const Footer = ({ setCurrentPage }) => {
           <section className="site-footer__brand-card">
             <div className="site-footer__brand-lockup">
               <div className="site-footer__brand-icon">
-                <Factory size={24} />
+                <img src="logo.jpg" alt="" sizes="24" />
               </div>
               <h3>Precision CNC Works</h3>
             </div>
