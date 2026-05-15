@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FileText, Download, Check } from "lucide-react";
 
 const BrochurePage = () => {
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -59,7 +65,9 @@ const BrochurePage = () => {
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr",
             gap: isMobile ? "2rem" : "3rem",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+            boxShadow: isMobile
+              ? "0 12px 26px rgba(0,0,0,0.07)"
+              : "0 20px 40px rgba(0,0,0,0.08)",
           }}
         >
           {/* Left */}
@@ -102,6 +110,7 @@ const BrochurePage = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "0.6rem",
+                minHeight: "48px",
                 boxShadow: "0 12px 30px rgba(37,99,235,0.35)",
               }}
             >
@@ -170,7 +179,9 @@ const BrochurePage = () => {
                 border: "1px solid #e5e7eb",
                 borderRadius: "0.75rem",
                 padding: "1.25rem",
-                boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
+                boxShadow: isMobile
+                  ? "0 8px 18px rgba(0,0,0,0.05)"
+                  : "0 10px 25px rgba(0,0,0,0.06)",
               }}
             >
               <p style={{ color: "#64748b", fontSize: "0.85rem" }}>

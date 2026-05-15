@@ -3,10 +3,17 @@ import React from "react";
 const ClientsSlider = () => {
   const clients = [
     { name: "Bray Controls", logo: "/assets/clients/bray-control.png" },
-    { name: "Windsor Machine Limited", logo: "/assets/clients/windsor-machine.jpeg" },
+    {
+      name: "Windsor Machine Limited",
+      logo: "/assets/clients/windsor-machine.jpeg",
+    },
     { name: "Milacron", logo: "/assets/clients/milacron.jpg" },
     { name: "KHS Machinery Limited", logo: "/assets/clients/KHS.webp" },
-    { name: "Parle Tableting Technologies Pvt. Ltd.", logo: "/assets/clients/parle.png" },    { name: "L&T", logo: "/assets/clients/lt.png" },
+    {
+      name: "Parle Tableting Technologies Pvt. Ltd.",
+      logo: "/assets/clients/parle.png",
+    },
+    { name: "L&T", logo: "/assets/clients/lt.png" },
     { name: "Hydco Engineering", logo: "/assets/clients/hydco.png" },
     { name: "Ingersoll rand", logo: "/assets/clients/ingersoll-rand.webp" },
   ];
@@ -14,9 +21,8 @@ const ClientsSlider = () => {
   return (
     <div
       style={{
-        maxWidth: "1280px",
-        margin: "6rem auto",
-        padding: "3rem 1rem",
+        margin: "0 auto",
+        padding: "1rem 0 3rem",
       }}
     >
       <h2
@@ -24,10 +30,9 @@ const ClientsSlider = () => {
           fontSize: "clamp(1.6rem, 4vw, 2.5rem)",
           fontWeight: "700",
           textAlign: "center",
-          marginBottom: "3rem",
-          color: "#ffffff",
+          marginBottom: "2rem",
+          color: "#153e75",
           letterSpacing: "1px",
-          textShadow: "0 10px 30px rgba(0,0,0,0.6)",
         }}
       >
         Our Trusted Clients
@@ -37,10 +42,10 @@ const ClientsSlider = () => {
         style={{
           position: "relative",
           overflow: "hidden",
-          borderRadius: "18px",
-          background: "rgba(255,255,255,0.08)",
-          backdropFilter: "blur(12px)",
-          boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
+          borderRadius: "8px",
+          background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+          border: "1px solid rgba(15, 23, 42, 0.08)",
+          boxShadow: "0 24px 60px rgba(15, 23, 42, 0.08)",
           padding: "2.5rem 0",
         }}
       >
@@ -63,9 +68,10 @@ const ClientsSlider = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 background: "#ffffff",
-                borderRadius: "16px",
+                border: "1px solid rgba(15, 23, 42, 0.08)",
+                borderRadius: "8px",
                 padding: "1rem",
-                boxShadow: "0 12px 28px rgba(0,0,0,0.15)",
+                boxShadow: "0 14px 28px rgba(15, 23, 42, 0.08)",
                 transition: "all 0.35s ease",
                 cursor: "pointer",
               }}
@@ -73,13 +79,12 @@ const ClientsSlider = () => {
                 e.currentTarget.style.transform =
                   "translateY(-8px) scale(1.07)";
                 e.currentTarget.style.boxShadow =
-                  "0 25px 50px rgba(0,0,0,0.3)";
+                  "0 24px 40px rgba(15, 23, 42, 0.16)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(0) scale(1)";
+                e.currentTarget.style.transform = "translateY(0) scale(1)";
                 e.currentTarget.style.boxShadow =
-                  "0 12px 28px rgba(0,0,0,0.15)";
+                  "0 14px 28px rgba(15, 23, 42, 0.08)";
               }}
             >
               <img

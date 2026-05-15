@@ -1,0 +1,71 @@
+.aurora-background {
+  position: relative;
+  contain: paint;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(217, 45, 32, 0.1), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f5f9fd 100%);
+}
+
+.aurora-background__layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-background__lights {
+  position: absolute;
+  top: -12%;
+  left: -12%;
+  width: 124%;
+  height: 124%;
+  opacity: 0.66;
+  filter: blur(8px);
+  transform: translate3d(0, 0, 0) scale(1.04);
+  transform-origin: 60% 30%;
+  will-change: transform;
+  background-image:
+    radial-gradient(circle at 72% 18%, rgba(15, 108, 189, 0.36), transparent 28%),
+    radial-gradient(circle at 22% 24%, rgba(88, 184, 232, 0.28), transparent 26%),
+    radial-gradient(circle at 64% 72%, rgba(217, 45, 32, 0.18), transparent 30%),
+    linear-gradient(118deg, rgba(255, 255, 255, 0.88), rgba(245, 249, 253, 0.36));
+  animation: aurora-float 34s ease-in-out infinite alternate;
+}
+
+.aurora-background__lights::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.5) 12%, transparent 38%),
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.72), transparent 22%);
+  opacity: 0.72;
+}
+
+.aurora-background__lights--masked {
+  mask-image: radial-gradient(ellipse at 100% 0%, #000 14%, transparent 74%);
+}
+
+.aurora-background__content {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes aurora-float {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.04) rotate(0.001deg);
+  }
+
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.08) rotate(0.001deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-background__lights {
+    animation: none;
+  }
+}

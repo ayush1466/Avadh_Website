@@ -217,6 +217,43 @@ const AboutPage = () => {
           box-shadow: 0 25px 50px rgba(0,0,0,0.25);
           background-color: #eff6ff;
         }
+
+        @media (max-width: 767px) {
+          .card-hover {
+            padding: 1.35rem !important;
+            border-radius: 1rem !important;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.09) !important;
+          }
+
+          .card-hover:hover,
+          .button-hover:hover {
+            transform: none;
+          }
+
+          .animate-fadeInLeft,
+          .animate-fadeInRight,
+          .animate-fadeInUp,
+          .animate-scaleIn,
+          .process-card {
+            animation-duration: 0.45s;
+          }
+
+          .animate-float,
+          .animate-pulse-slow,
+          .shimmer {
+            animation: none !important;
+          }
+
+          .tag-appear {
+            line-height: 1.35;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .card-hover p {
+            font-size: 0.95rem !important;
+          }
+        }
       `}</style>
 
       {/* Hero Section */}

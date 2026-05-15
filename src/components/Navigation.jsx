@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navigation = ({ currentPage, setCurrentPage }) => {
@@ -13,12 +13,35 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
     { id: "contact", label: "Contact Us" },
   ];
 
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", isOpen);
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.classList.remove("nav-open");
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
+
+  const goToPage = (pageId) => {
+    setCurrentPage(pageId);
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <header className="nav-wrapper">
         <div className="nav-container">
           {/* BRAND */}
-          <div className="brand" onClick={() => setCurrentPage("home")}>
+          <button className="brand" onClick={() => goToPage("home")}>
             <div className="brand-logo">
               <img src="/logo.jpg" alt="Avadh Enterprise Logo" />
             </div>
@@ -26,7 +49,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
               <h1>AVADH ENTERPRISE</h1>
               <span>ALL MACHINING SOLUTIONS UNDER ONE ROOF</span>
             </div>
-          </div>
+          </button>
 
           {/* DESKTOP MENU */}
           <nav className="nav-links">
@@ -36,7 +59,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 className={`nav-link ${
                   currentPage === item.id ? "active" : ""
                 }`}
-                onClick={() => setCurrentPage(item.id)}
+                onClick={() => goToPage(item.id)}
               >
                 {item.label}
               </button>
@@ -46,8 +69,9 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           {/* MOBILE TOGGLE */}
           <button
             className="menu-btn"
-            onClick={() => setIsOpen(true)}
-            aria-label="Toggle Menu"
+            onClick={() => setIsOpen((value) => !value)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             <Menu size={28} />
           </button>
@@ -71,7 +95,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
       </div>
     </div>
 
-    <button className="close-btn" onClick={() => setIsOpen(false)}>
+    <button className="close-btn" onClick={() => setIsOpen(false)} aria-label="Close menu">
       <X size={26} />
     </button>
   </div>
@@ -85,8 +109,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           currentPage === item.id ? "active" : ""
         }`}
         onClick={() => {
-          setCurrentPage(item.id);
-          setIsOpen(false);
+          goToPage(item.id);
         }}
       >
         <span className="link-dot" />
@@ -124,6 +147,10 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -194,10 +221,22 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
 /* ================= MOBILE BUTTON ================= */
 .menu-btn {
-  background: none;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
   color: #ffffff;
   cursor: pointer;
+}
+
+body.nav-open {
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* ================= OVERLAY ================= */
@@ -213,10 +252,9 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 82%;
-  max-width: 340px;
-  height: 100vh;
-  padding: 1.5rem;
+  width: min(88vw, 380px);
+  height: 100dvh;
+  padding: calc(1rem + env(safe-area-inset-top)) 1rem calc(1rem + env(safe-area-inset-bottom));
   background: linear-gradient(
     to bottom,
     rgba(15, 23, 42, 0.98),
@@ -227,6 +265,8 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   z-index: 2000;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   transition: right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -239,13 +279,15 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  gap: 0.8rem;
+  margin-bottom: 1.75rem;
 }
 
 .mobile-brand {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .mobile-brand img {
@@ -257,7 +299,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 }
 
 .mobile-brand h2 {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 4vw, 1.1rem);
   font-weight: 800;
   color: #ffffff;
   margin: 0;
@@ -265,7 +307,9 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 }
 
 .mobile-brand span {
-  font-size: 0.65rem;
+  display: block;
+  max-width: 190px;
+  font-size: 0.58rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #fbbf24;
@@ -274,8 +318,15 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
 /* ================= CLOSE BUTTON ================= */
 .close-btn {
-  background: none;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
   color: #ffffff;
   cursor: pointer;
 }
@@ -285,33 +336,51 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 .mobile-links {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: 1rem;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
 }
 
 .mobile-link {
-  background: none;
-  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 52px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
   color: #e5e7eb;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.04rem;
+  font-weight: 650;
   text-align: left;
-  padding: 6px 0;
+  padding: 0.85rem 1rem;
   cursor: pointer;
   letter-spacing: 0.3px;
-  transition: all 0.35s ease;
+  transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
 /* Hover effect – smooth & premium */
 .mobile-link:hover {
   color: #fbbf24;
-  transform: translateX(6px);
+  transform: translate3d(4px, 0, 0);
+  background: rgba(251,191,36,0.08);
 }
 
 /* Active page */
 .mobile-link.active {
   color: #fbbf24;
   font-weight: 600;
+  background: rgba(251,191,36,0.12);
+  border-color: rgba(251,191,36,0.28);
+}
+
+.link-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: 0 0 0.5rem;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.45;
 }
 
 
@@ -326,6 +395,56 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   .menu-overlay,
   .mobile-drawer {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-container {
+    height: 68px;
+    padding: 0 0.85rem;
+  }
+
+  .brand {
+    gap: 0.65rem;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .brand-logo img {
+    width: 32px;
+  }
+
+  .brand-text {
+    min-width: 0;
+  }
+
+  .brand-text h1 {
+    font-size: clamp(0.98rem, 4.2vw, 1.14rem);
+    white-space: nowrap;
+  }
+
+  .brand-text span {
+    display: block;
+    max-width: 210px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.56rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-text span {
+    max-width: 165px;
+  }
+
+  .mobile-drawer {
+    width: 94vw;
   }
 }
 

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 
 const ContactPage = () => {
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "919825995010";
@@ -53,7 +59,7 @@ const ContactPage = () => {
           style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr",
-            gap: "2rem",
+            gap: isMobile ? "1.25rem" : "2rem",
             marginBottom: "3rem",
           }}
         >
@@ -63,8 +69,10 @@ const ContactPage = () => {
               background: "white",
               border: "1px solid #e5e7eb",
               borderRadius: "1rem",
-              padding: "2rem",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+              padding: isMobile ? "1.25rem" : "2rem",
+              boxShadow: isMobile
+                ? "0 12px 26px rgba(0,0,0,0.07)"
+                : "0 20px 40px rgba(0,0,0,0.08)",
             }}
           >
             <h2
@@ -105,6 +113,7 @@ const ContactPage = () => {
                 style={{
                   display: "flex",
                   gap: "1rem",
+                  alignItems: "flex-start",
                   marginBottom: "1.25rem",
                 }}
               >
@@ -150,8 +159,10 @@ const ContactPage = () => {
               background: "white",
               border: "1px solid #e5e7eb",
               borderRadius: "1rem",
-              padding: "2rem",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+              padding: isMobile ? "1.25rem" : "2rem",
+              boxShadow: isMobile
+                ? "0 12px 26px rgba(0,0,0,0.07)"
+                : "0 20px 40px rgba(0,0,0,0.08)",
             }}
           >
             <h2
@@ -173,7 +184,9 @@ const ContactPage = () => {
                 key={day}
                 style={{
                   display: "flex",
+                  gap: "1rem",
                   justifyContent: "space-between",
+                  alignItems: "flex-start",
                   padding: "0.6rem 0",
                   borderBottom: "1px solid #e5e7eb",
                   color: "#475569",
@@ -207,8 +220,10 @@ const ContactPage = () => {
             background: "white",
             border: "1px solid #e5e7eb",
             borderRadius: "1rem",
-            padding: "1.5rem",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+            padding: isMobile ? "1rem" : "1.5rem",
+            boxShadow: isMobile
+              ? "0 12px 26px rgba(0,0,0,0.07)"
+              : "0 20px 40px rgba(0,0,0,0.08)",
           }}
         >
           <h2

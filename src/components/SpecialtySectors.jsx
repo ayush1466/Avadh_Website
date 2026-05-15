@@ -1,7 +1,6 @@
 import React from "react";
-import { ChevronRight } from "lucide-react";
 
-const SpecialtySectors = ({ setCurrentPage }) => {
+const SpecialtySectors = () => {
   const specialtySectors = [
     { name: "INFRASTRUCTURE", image: "/assets/img8.jpeg" },
     { name: "VMC 3000x2000", image: "/assets/img3.jpeg" },

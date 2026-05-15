@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const ServicesPage = () => {
   const [showQuoteModal, setShowQuoteModal] = useState(false);
@@ -118,7 +118,7 @@ const ServicesPage = () => {
           textAlign: "center",
         }}
       >
-        <motion.h1
+        <Motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -129,7 +129,7 @@ const ServicesPage = () => {
           }}
         >
           Precision Manufacturing Services
-        </motion.h1>
+        </Motion.h1>
         <p
           style={{
             fontSize: isMobile ? "1rem" : "1.25rem",
@@ -152,7 +152,7 @@ const ServicesPage = () => {
         }}
       >
         {services.map((service, index) => (
-          <motion.div
+          <Motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -257,7 +257,7 @@ const ServicesPage = () => {
                 />
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
         ))}
       </section>
 
