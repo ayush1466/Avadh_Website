@@ -66,22 +66,26 @@ const HomePage = ({ setCurrentPage }) => {
   return (
     <main className="home-page">
       <AuroraBackground className="home-hero" as="section">
-        <div className="home-shell">
-          <div className="home-hero-center">
+        <div className="home-hero-frame">
+          <picture className="home-hero-picture">
+            <source media="(max-width: 767px)" srcSet="/phone_cover.png" />
             <img
-              className="home-hero-logo"
-              src="/indian.png"
-              alt="Company Logo"
+              className="home-hero-cover"
+              src="/desktop_cover.png"
+              alt="Avadh Engineering Excellence"
               decoding="async"
               fetchPriority="high"
             />
-            <p className="home-hero-tagline">ENGINEERING EXCELLENCE</p>
-            <button
-              className="home-primary-button"
-              onClick={() => setCurrentPage("contact")}
-            >
-              Contact Us
-            </button>
+          </picture>
+          <div className="home-mobile-hero-copy">
+            <h1>
+              <span className="home-copy-red">Accuracy</span>
+              <span className="home-copy-separator">.</span>
+              <span>Precision</span>
+              <span className="home-copy-separator">.</span>
+              <span className="home-copy-green">Innovation</span>
+            </h1>
+            <p>All machining solutions under one roof</p>
           </div>
         </div>
       </AuroraBackground>
