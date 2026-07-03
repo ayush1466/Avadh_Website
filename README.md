@@ -1,16 +1,53 @@
-# React + Vite
+# Avadh Enterprise Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern responsive website for **Avadh Enterprise**, an ISO 9001:2015 certified CNC machining and heavy engineering company based in Ahmedabad, Gujarat.
 
-Currently, two official plugins are available:
+The website showcases the company profile, services, industrial applications, brochure, contact details, client information, and quick enquiry options through WhatsApp and email.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Responsive React website built with Vite
+- Home, About, Services, Applications, Brochure, and Contact pages
+- CNC machining service showcase
+- Industrial application sections
+- Image sliders for components, clients, and machinery
+- Floating WhatsApp enquiry button
+- Quote request options through WhatsApp and email
+- Optimized production build with compression and image optimization
+- Clean navigation and footer with contact and social links
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- JavaScript
+- CSS
+- Framer Motion
+- Lucide React Icons
+- Font Awesome
+- Vite compression and image optimization plugins
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```text
+avadh_web/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Footer.jsx
+│   │   ├── Navigation.jsx
+│   │   ├── WhatsAppFloat.jsx
+│   │   ├── ClientsSlider.jsx
+│   │   └── SpecialtySectors.jsx
+│   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   ├── AboutPage.jsx
+│   │   ├── ServicesPage.jsx
+│   │   ├── ApplicationsPage.jsx
+│   │   ├── BrochurePage.jsx
+│   │   └── ContactPage.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+├── vite.config.js
+└── README.md
