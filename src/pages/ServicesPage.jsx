@@ -97,7 +97,7 @@ const ServicesPage = () => {
 
   const handleEmailQuote = () => {
     window.location.href =
-      "mailto:avadheng@gmail.com" +
+      "mailto:info@avadheng.com" +
       "?subject=Request%20for%20Quote" +
       "&body=Hello,%0D%0A%0D%0A" +
       "I would like to request a quote.%0D%0A%0D%0A" +

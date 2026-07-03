@@ -105,7 +105,7 @@ const ContactPage = () => {
               {
                 icon: <Mail color="#2563eb" />,
                 title: "Email",
-                value: "avadheng@gmail.com",
+                value: "info@avadheng.com",
               },
             ].map((item, index) => (
               <div

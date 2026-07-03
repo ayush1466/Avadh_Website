@@ -23,7 +23,7 @@ const Footer = ({ setCurrentPage }) => {
       name: "Email",
       icon: Mail,
       color: "#0f6cbd",
-      action: () => (window.location.href = "mailto:avadheng@gmail.com"),
+      action: () => (window.location.href = "mailto:info@avadheng.com"),
     },
     {
       name: "LinkedIn",
@@ -174,7 +174,7 @@ const Footer = ({ setCurrentPage }) => {
               </li>
               <li>
                 <Mail size={18} />
-                <span>avadheng@gmail.com</span>
+                <span>info@avadheng.com</span>
               </li>
             </ul>
           </section>
