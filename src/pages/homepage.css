@@ -1,7 +1,10 @@
 .home-page {
+  --home-ink: #102a43;
+  --home-blue: #0f6cbd;
+  --home-red: #d92d20;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  color: #0f172a;
-  font-family: "Segoe UI", "Inter", Arial, sans-serif;
+  color: var(--home-ink);
+  font-family: "Manrope", "Segoe UI", sans-serif;
 }
 
 .home-shell {
@@ -31,7 +34,7 @@
   justify-content: center;
   min-height: calc(100vh - 82px);
   overflow: hidden;
-  animation: home-hero-enter 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
 }
 
 .home-hero-frame::after {
@@ -49,7 +52,7 @@
     transparent 100%
   );
   pointer-events: none;
-  animation: home-mobile-light-sweep 3.8s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: home-mobile-light-sweep 4.8s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .home-hero-picture {
@@ -64,7 +67,7 @@
   object-fit: cover;
   object-position: center bottom;
   transform-origin: center;
-  animation: home-cover-enter 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
 }
 
 .home-mobile-hero-copy {
@@ -88,7 +91,7 @@
   justify-content: center;
   gap: clamp(0.28rem, 1.1vw, 0.72rem);
   margin: 0;
-  font-family: "Segoe UI", "Inter", "Montserrat", Arial, sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   font-size: clamp(2.25rem, 4.55vw, 4.25rem);
   font-weight: 900;
   letter-spacing: 0.01em;
@@ -99,20 +102,7 @@
 
 .home-mobile-hero-copy h1 span:not(.home-copy-separator) {
   display: inline-block;
-  opacity: 0;
-  animation: home-mobile-copy-enter 0.96s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.home-mobile-hero-copy h1 span:nth-child(1) {
-  animation-delay: 0.38s;
-}
-
-.home-mobile-hero-copy h1 span:nth-child(3) {
-  animation-delay: 0.58s;
-}
-
-.home-mobile-hero-copy h1 span:nth-child(5) {
-  animation-delay: 0.78s;
+  will-change: transform, opacity;
 }
 
 .home-mobile-hero-copy p {
@@ -123,8 +113,22 @@
   font-weight: 650;
   letter-spacing: 0.005em;
   line-height: 1.22;
-  opacity: 0;
-  animation: home-mobile-subtitle-enter 0.88s 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+.home-hero-accent {
+  display: block;
+  width: clamp(3.5rem, 9vw, 7rem);
+  height: 3px;
+  margin: clamp(0.7rem, 1.4vw, 1.1rem) auto 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--home-red), #ffffff, #63d756);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.home-reveal {
+  will-change: transform, opacity;
 }
 
 .home-copy-red {
@@ -342,56 +346,6 @@
   background: #d92d20;
 }
 
-@keyframes home-hero-enter {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 16px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes home-cover-enter {
-  from {
-    filter: saturate(0.92) brightness(0.98);
-    opacity: 0.94;
-  }
-
-  to {
-    filter: saturate(1) brightness(1);
-    opacity: 1;
-  }
-}
-
-@keyframes home-mobile-copy-enter {
-  from {
-    filter: blur(6px);
-    opacity: 0;
-    transform: translate3d(0, 16px, 0) scale(0.98);
-  }
-
-  to {
-    filter: blur(0);
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-
-@keyframes home-mobile-subtitle-enter {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 12px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @keyframes home-mobile-light-sweep {
   0% {
     opacity: 0;
@@ -414,11 +368,15 @@
     animation: none;
   }
 
+  .home-hero-frame::after {
+    animation: none;
+    opacity: 0;
+  }
+
   .home-hero-cover,
   .home-mobile-hero-copy h1 span,
-  .home-mobile-hero-copy p {
-    animation: none !important;
-    filter: none;
+  .home-mobile-hero-copy p,
+  .home-reveal {
     opacity: 1;
     transform: none;
   }
@@ -437,7 +395,7 @@
 
   .home-hero-frame,
   .home-hero-cover {
-    min-height: calc(100vh - 72px);
+    min-height: clamp(480px, 67svh, 620px);
   }
 
   .home-hero-frame::after {
@@ -463,6 +421,17 @@
   .home-mobile-hero-copy {
     top: clamp(4.75rem, 17vh, 7rem);
     width: min(100% - 2rem, 420px);
+    padding: 1rem 0.75rem 1.15rem;
+    border-radius: 1.5rem;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(4, 25, 52, 0.78) 0%,
+      rgba(4, 25, 52, 0.46) 48%,
+      rgba(4, 25, 52, 0) 78%
+    );
+    text-shadow:
+      0 2px 3px rgba(0, 0, 0, 0.78),
+      0 8px 18px rgba(0, 10, 24, 0.72);
   }
 
   .home-mobile-hero-copy h1 {
@@ -471,8 +440,11 @@
     justify-content: center;
     gap: 0.08rem;
     margin: 0;
-    font-family: "Segoe UI", "Inter", "Montserrat", Arial, sans-serif;
-    font-size: clamp(2.15rem, 10.8vw, 3.25rem);
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    font-size: clamp(2rem, 10.2vw, 3.1rem);
+    text-shadow:
+      0 2px 2px rgba(0, 0, 0, 0.9),
+      0 5px 12px rgba(0, 10, 24, 0.8);
     font-weight: 900;
     letter-spacing: 0.01em;
     line-height: 0.98;
@@ -486,8 +458,12 @@
   .home-mobile-hero-copy p {
     width: min(100%, 18rem);
     margin: clamp(0.7rem, 2.6vw, 1rem) auto 0;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(8, 35, 64, 0.38);
     font-size: clamp(0.95rem, 4.1vw, 1.25rem);
     line-height: 1.25;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   }
 
   .home-copy-separator {
@@ -497,8 +473,24 @@
   .home-about-section,
   .home-features-section,
   .home-components-section {
-    padding-top: 3.5rem;
+    padding-top: 2.5rem;
     contain-intrinsic-size: 900px;
+  }
+
+  .home-about-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .home-about-text {
+    gap: 0.75rem;
+  }
+
+  .home-about-text p {
+    line-height: 1.65;
+  }
+
+  .home-link-button {
+    margin-top: 1.1rem;
   }
 
   .home-about-card,
@@ -508,7 +500,37 @@
   }
 
   .home-features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .home-features-section {
+    padding-bottom: 2.5rem;
+  }
+
+  .home-feature-card {
+    padding: 1rem 0.7rem;
+  }
+
+  .home-feature-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.65rem;
+  }
+
+  .home-feature-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .home-feature-card h3 {
+    margin-bottom: 0.45rem;
+    font-size: 0.88rem;
+  }
+
+  .home-feature-card p {
+    font-size: 0.77rem;
+    line-height: 1.45;
   }
 
   .home-about-card h1 {
@@ -545,7 +567,7 @@
 @media (max-width: 420px) {
   .home-hero-frame,
   .home-hero-cover {
-    min-height: calc(100vh - 64px);
+    min-height: clamp(450px, 64svh, 560px);
   }
 
   .home-mobile-hero-copy {

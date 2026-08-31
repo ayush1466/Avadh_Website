@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, ChevronLeft, ChevronRight, Cog, ShieldCheck, Wrench } from "lucide-react";
+import anime from "animejs";
+import gsap from "gsap";
 import AuroraBackground from "../components/ui/AuroraBackground";
+import ClientsSlider from "../components/ClientsSlider";
 import "./homepage.css";
 
 const aboutParagraphs = [
@@ -54,6 +57,98 @@ const componentSlides = [
 
 const HomePage = ({ setCurrentPage }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const homeRef = useRef(null);
+
+  useEffect(() => {
+    const home = homeRef.current;
+    const media = gsap.matchMedia();
+    let observer;
+    let accentPulse;
+
+    media.add("(prefers-reduced-motion: no-preference)", () => {
+      const context = gsap.context(() => {
+        gsap.timeline({ defaults: { ease: "power3.out" } })
+          .from(".home-hero-frame", { autoAlpha: 0, y: 18, duration: 0.8 })
+          .from(".home-hero-cover", { scale: 1.035, autoAlpha: 0, duration: 1.5 }, "-=0.65")
+          .from(".home-mobile-hero-copy h1 span:not(.home-copy-separator)", {
+            autoAlpha: 0,
+            y: 22,
+            stagger: 0.11,
+            duration: 0.72,
+          }, "-=0.8")
+          .from(".home-mobile-hero-copy p", { autoAlpha: 0, y: 14, duration: 0.55 }, "-=0.42");
+
+        observer = new IntersectionObserver(
+          (entries, entryObserver) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+
+              gsap.fromTo(entry.target, { autoAlpha: 0, y: 24 }, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.7,
+                ease: "power3.out",
+              });
+              entryObserver.unobserve(entry.target);
+            });
+          },
+          { rootMargin: "0px 0px -12%" },
+        );
+
+        home.querySelectorAll(".home-reveal").forEach((item) => observer.observe(item));
+
+        accentPulse = anime({
+          targets: ".home-hero-accent",
+          scaleX: [0.45, 1],
+          opacity: [0.55, 1],
+          duration: 1500,
+          easing: "easeInOutSine",
+          direction: "alternate",
+          loop: true,
+        });
+
+      }, home);
+
+      return () => {
+        observer?.disconnect();
+        accentPulse?.pause();
+        context.revert();
+      };
+    });
+
+    return () => media.revert();
+  }, []);
+
+  useEffect(() => {
+    const slides = homeRef.current
+      ? [...homeRef.current.querySelectorAll(".home-slide")]
+      : [];
+    const activeSlide = slides.find((slide) => slide.classList.contains("is-active"));
+    if (!activeSlide) return;
+
+    const inactiveSlides = slides.filter((slide) => slide !== activeSlide);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.set(slides, { autoAlpha: 0, scale: 1 });
+      gsap.set(activeSlide, { autoAlpha: 1 });
+      return;
+    }
+
+    gsap.to(inactiveSlides, {
+      autoAlpha: 0,
+      scale: 1,
+      duration: 0.2,
+      ease: "power1.out",
+      overwrite: true,
+    });
+
+    gsap.fromTo(activeSlide, { autoAlpha: 0, scale: 1.02 }, {
+      autoAlpha: 1,
+      scale: 1,
+      duration: 0.75,
+      ease: "power2.out",
+      overwrite: true,
+    });
+  }, [currentSlide]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,7 +159,7 @@ const HomePage = ({ setCurrentPage }) => {
   }, []);
 
   return (
-    <main className="home-page">
+    <main ref={homeRef} className="home-page">
       <AuroraBackground className="home-hero" as="section">
         <div className="home-hero-frame">
           <picture className="home-hero-picture">
@@ -85,6 +180,7 @@ const HomePage = ({ setCurrentPage }) => {
               <span className="home-copy-separator">.</span>
               <span className="home-copy-green">Innovation</span>
             </h1>
+            <span className="home-hero-accent" aria-hidden="true" />
             <p>All machining solutions under one roof</p>
           </div>
         </div>
@@ -92,7 +188,7 @@ const HomePage = ({ setCurrentPage }) => {
 
       <section className="home-about-section">
         <div className="home-shell">
-          <div className="home-about-card">
+          <div className="home-about-card home-reveal">
             <span className="home-kicker">About Us</span>
             <h1>SINCE 2006</h1>
             <div className="home-about-text">
@@ -117,7 +213,7 @@ const HomePage = ({ setCurrentPage }) => {
               const Icon = feature.Icon;
 
               return (
-                <article key={feature.title} className="home-feature-card">
+                <article key={feature.title} className="home-feature-card home-reveal">
                   <div
                     className="home-feature-icon"
                     style={{ color: feature.color }}
@@ -135,12 +231,12 @@ const HomePage = ({ setCurrentPage }) => {
 
       <section className="home-components-section">
         <div className="home-shell">
-          <div className="home-section-header">
+          <div className="home-section-header home-reveal">
             <span className="home-kicker">Portfolio</span>
             <h2>Our Engineered Components</h2>
           </div>
 
-          <div className="home-slider-card">
+          <div className="home-slider-card home-reveal">
             <div className="home-slider-stage">
               {componentSlides.map((slide, index) => (
                 <div
@@ -197,6 +293,12 @@ const HomePage = ({ setCurrentPage }) => {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="home-clients-section">
+        <div className="home-shell">
+          <ClientsSlider />
         </div>
       </section>
     </main>

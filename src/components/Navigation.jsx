@@ -88,19 +88,23 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
         </nav>
 
         <div className="site-nav__actions">
-          {actionItems.map(({ Icon, ...item }) => (
-            <button
-              key={item.id}
-              className={`site-nav__action ${
-                currentPage === item.id ? "is-active" : ""
-              } ${item.id === "contact" ? "site-nav__action--primary" : ""}`}
-              onClick={() => goToPage(item.id)}
-              type="button"
-            >
-              <Icon size={16} aria-hidden="true" />
-              <span>{item.label}</span>
-            </button>
-          ))}
+          {actionItems.map((item) => {
+            const Icon = item.Icon;
+
+            return (
+              <button
+                key={item.id}
+                className={`site-nav__action ${
+                  currentPage === item.id ? "is-active" : ""
+                } ${item.id === "contact" ? "site-nav__action--primary" : ""}`}
+                onClick={() => goToPage(item.id)}
+                type="button"
+              >
+                <Icon size={16} aria-hidden="true" />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -128,19 +132,23 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           </button>
         </div>
         <nav aria-label="Mobile navigation" className="site-nav__mobile-list">
-          {[...navItems, ...actionItems].map(({ Icon, ...item }) => (
-            <button
-              key={item.id}
-              className={`site-nav__mobile-link ${
-                currentPage === item.id ? "is-active" : ""
-              }`}
-              onClick={() => goToPage(item.id)}
-              type="button"
-            >
-              <span>{item.label}</span>
-              {Icon ? <Icon size={16} aria-hidden="true" /> : null}
-            </button>
-          ))}
+          {[...navItems, ...actionItems].map((item) => {
+            const Icon = item.Icon;
+
+            return (
+              <button
+                key={item.id}
+                className={`site-nav__mobile-link ${
+                  currentPage === item.id ? "is-active" : ""
+                }`}
+                onClick={() => goToPage(item.id)}
+                type="button"
+              >
+                <span>{item.label}</span>
+                {Icon ? <Icon size={16} aria-hidden="true" /> : null}
+              </button>
+            );
+          })}
         </nav>
       </div>
     </header>
