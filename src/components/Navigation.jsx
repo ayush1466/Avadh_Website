@@ -73,9 +73,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             type="button"
             aria-label="Go to home page"
           >
-            <span className="site-nav__logo">
-              <img src="/logo.jpg" alt="Avadh Enterprise" />
-            </span>
+            <img className="site-nav__logo" src="/logo.jpg" alt="Avadh Enterprise" />
             <span className="site-nav__brand-copy">
               <strong>AVADH ENTERPRISE</strong>
               <span>All machining solutions under one roof</span>
