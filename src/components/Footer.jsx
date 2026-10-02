@@ -55,6 +55,7 @@ const Footer = ({ setCurrentPage }) => {
     { id: "about", label: "About Us" },
     { id: "applications", label: "Applications" },
     { id: "brochure", label: "Brochure" },
+    { id: "policies", label: "Policies & Certificates" },
     { id: "contact", label: "Contact Us" },
   ];
 

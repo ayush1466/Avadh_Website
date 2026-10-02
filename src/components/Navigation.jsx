@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Download, Menu, Phone, X } from "lucide-react";
+import { Download, FileCheck2, Menu, Phone, X } from "lucide-react";
 import "./Navigation.css";
 
 const navItems = [
@@ -11,6 +11,7 @@ const navItems = [
 
 const actionItems = [
   { id: "brochure", label: "Brochure", Icon: Download },
+  { id: "policies", label: "Policies", Icon: FileCheck2 },
   { id: "contact", label: "Contact Us", Icon: Phone },
 ];
 

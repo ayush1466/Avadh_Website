@@ -56,4 +56,11 @@ export default defineConfig({
     cssMinify: true,
     assetsInlineLimit: 4096,
   },
+
+  server: {
+    watch: {
+      usePolling: true,
+      interval: 1000,
+    },
+  },
 });

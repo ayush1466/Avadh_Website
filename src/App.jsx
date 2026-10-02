@@ -15,6 +15,7 @@ import ServicesPage from './pages/ServicesPage';
 import ApplicationsPage from './pages/ApplicationsPage';
 import BrochurePage from './pages/BrochurePage';
 import ContactPage from './pages/ContactPage';
+import PoliciesPage from './pages/PoliciesPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -37,6 +38,8 @@ function App() {
         return <BrochurePage />;
       case 'contact':
         return <ContactPage />;
+      case 'policies':
+        return <PoliciesPage />;
       default:
         return <HomePage setCurrentPage={setCurrentPage} />;
     }
